@@ -1,0 +1,28 @@
+# Operating-system metadata
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+._*
+
+# Office lock files
+~$*
+*.tmp
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build / package artifacts (none today, but reserved)
+node_modules/
+dist/
+build/
+.cache/
+
+# Local env files (just in case)
+.env
+.env.*
