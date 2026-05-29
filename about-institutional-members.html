@@ -8,6 +8,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
 <link rel="stylesheet" href="css/styles.css">
+<style>
+  .member-card { text-align: center; align-items: center; }
+  .member-card__logo { max-height: 110px; width: auto; max-width: 100%; object-fit: contain; margin-bottom: 1rem; }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -142,13 +146,35 @@
 <section>
   <div class="container">
     <div class="cards">
-      <a class="card" href="https://dentistry.uiowa.edu/" target="_blank" rel="noopener"><h3>University of Iowa College of Dentistry</h3></a>
-      <a class="card" href="https://www.westernu.edu/" target="_blank" rel="noopener"><h3>Western University of Health Sciences</h3></a>
-      <a class="card" href="https://www.atsu.edu/college-of-graduate-health-studies/academics/master-of-public-health-dental-emphasis-degree" target="_blank" rel="noopener"><h3>A.T. Still University</h3><p>College of Graduate Health Studies — Master of Public Health Dental Emphasis Degree</p></a>
-      <a class="card" href="https://dentistry.uic.edu/" target="_blank" rel="noopener"><h3>University of Illinois Chicago College of Dentistry</h3></a>
-      <a class="card" href="https://www.dental.umaryland.edu/" target="_blank" rel="noopener"><h3>University of Maryland School of Dentistry</h3></a>
-      <a class="card" href="https://www.umkc.edu/" target="_blank" rel="noopener"><h3>University of Missouri–Kansas City</h3></a>
-      <a class="card" href="https://dentistry.vcu.edu/" target="_blank" rel="noopener"><h3>Virginia Commonwealth University School of Dentistry</h3></a>
+      <a class="card member-card" href="https://dentistry.uiowa.edu/" target="_blank" rel="noopener">
+        <img class="member-card__logo" src="assets/institutional-members/uiowa.png" alt="University of Iowa College of Dentistry" loading="lazy">
+        <h3>University of Iowa College of Dentistry</h3>
+      </a>
+      <a class="card member-card" href="https://www.westernu.edu/" target="_blank" rel="noopener">
+        <img class="member-card__logo" src="assets/institutional-members/western-u.jpg" alt="Western University of Health Sciences" loading="lazy">
+        <h3>Western University of Health Sciences</h3>
+      </a>
+      <a class="card member-card" href="https://www.atsu.edu/college-of-graduate-health-studies/academics/master-of-public-health-dental-emphasis-degree" target="_blank" rel="noopener">
+        <img class="member-card__logo" src="assets/institutional-members/atsu.png" alt="A.T. Still University" loading="lazy">
+        <h3>A.T. Still University</h3>
+        <p>College of Graduate Health Studies — Master of Public Health Dental Emphasis Degree</p>
+      </a>
+      <a class="card member-card" href="https://dentistry.uic.edu/" target="_blank" rel="noopener">
+        <img class="member-card__logo" src="assets/institutional-members/uic.png" alt="University of Illinois Chicago College of Dentistry" loading="lazy">
+        <h3>University of Illinois Chicago College of Dentistry</h3>
+      </a>
+      <a class="card member-card" href="https://www.dental.umaryland.edu/" target="_blank" rel="noopener">
+        <img class="member-card__logo" src="assets/institutional-members/umd.jpg" alt="University of Maryland School of Dentistry" loading="lazy">
+        <h3>University of Maryland School of Dentistry</h3>
+      </a>
+      <a class="card member-card" href="https://www.umkc.edu/" target="_blank" rel="noopener">
+        <img class="member-card__logo" src="assets/institutional-members/umkc.jpg" alt="University of Missouri–Kansas City" loading="lazy">
+        <h3>University of Missouri–Kansas City</h3>
+      </a>
+      <a class="card member-card" href="https://dentistry.vcu.edu/" target="_blank" rel="noopener">
+        <img class="member-card__logo" src="assets/institutional-members/vcu.png" alt="Virginia Commonwealth University School of Dentistry" loading="lazy">
+        <h3>Virginia Commonwealth University School of Dentistry</h3>
+      </a>
     </div>
   </div>
 </section>
