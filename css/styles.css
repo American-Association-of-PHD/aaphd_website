@@ -172,48 +172,63 @@ p { margin: 0 0 1em; }
     z-index: 60;
   }
 
-  /* Make the open menu's outer padding-top match the header height exactly */
-  .primary-nav > ul { gap: 0; padding-top: .5rem; }
+  /* Plain block layout for the mobile menu — no flex, no positioning tricks.
+     Every previous attempt used flex-wrap with flex-basis:100% to make submenus
+     wrap below their parents, but on iOS Chrome that silently fails and the
+     submenu ends up as a right-column sibling instead. Pure block layout
+     guarantees stacked rows that work everywhere. */
+  .primary-nav > ul { gap: 0; padding: .5rem 0; }
+  .primary-nav > ul > li { display: block; }
   .primary-nav > ul > li:not(.has-dropdown) { padding: .25rem var(--gutter); }
   .primary-nav > ul > li:not(.has-dropdown) .cta,
   .primary-nav > ul > li:not(.has-dropdown) .login-btn { margin: .35rem 0 0 0; }
 
-  /* Top-level dropdown row: whole row is the tap target, chevron is just an indicator */
+  /* Top-level dropdown <li>: plain block, no flex */
   .has-dropdown {
-    display: flex; flex-wrap: wrap; align-items: center;
+    display: block;
+    position: relative;
   }
+
+  /* The chevron toggle button is HIDDEN on mobile — the whole row is the
+     tap target instead, and we draw a chevron indicator on the link itself
+     via ::after below. */
+  .has-dropdown > .dropdown-toggle { display: none; }
+
+  /* Top-level link: full-width row, bold, with a chevron indicator on the right */
   .has-dropdown > a {
-    flex: 1; min-width: 0;
-    padding: 1.1rem var(--gutter);
-    border-radius: 0;
-    font-weight: 700;
+    display: block;
+    padding: 1.15rem 3rem 1.15rem var(--gutter);   /* right padding leaves room for the chevron */
     font-size: var(--fs-lg);
+    font-weight: 700;
     color: var(--navy-900);
-  }
-  .has-dropdown > .dropdown-toggle {
-    width: 60px; height: 60px;
-    margin: 0;
     border-radius: 0;
-    color: var(--navy-700);
-    background: transparent;
-    border: 0;
+    position: relative;
   }
-  .dropdown-toggle svg { width: 16px; height: 16px; }
+  .has-dropdown > a::after {
+    content: "";
+    position: absolute;
+    right: calc(var(--gutter) + .25rem);
+    top: 50%;
+    width: 10px; height: 10px;
+    border-right: 2px solid currentColor;
+    border-bottom: 2px solid currentColor;
+    transform: translateY(-75%) rotate(45deg);
+    transition: transform var(--dur) var(--ease);
+  }
+  .has-dropdown[data-open="true"] > a::after {
+    transform: translateY(-25%) rotate(225deg);
+  }
 
-  /* Active/open state: bold coral text, no row background (cleaner look) */
-  .has-dropdown[data-open="true"] > a {
-    color: var(--coral-700);
-  }
-  .has-dropdown[data-open="true"] > .dropdown-toggle {
-    color: var(--coral-700);
-  }
+  /* Open state: bold coral on the top-level row */
+  .has-dropdown[data-open="true"] > a { color: var(--coral-700); }
 
-  /* Submenu: clearly distinct gray panel, no extra borders elsewhere */
+  /* Submenu: HIDDEN by default; shown only when its parent has data-open="true".
+     The base .submenu rule (display: none) already does the hiding — these
+     rules just style the open state. */
   .has-dropdown[data-open="true"] > .submenu {
     display: block;
-    flex-basis: 100%;
-    margin: 0 var(--gutter) .75rem var(--gutter);
-    padding: .5rem 0;
+    margin: 0 var(--gutter) .5rem;
+    padding: .35rem 0;
     border: 0;
     border-radius: 8px;
     background: var(--mist);
@@ -330,13 +345,12 @@ p { margin: 0 0 1em; }
 }
 
 @media (max-width: 1099px) {
-  /* Mega-menu accordion: same rounded gray panel as regular submenu */
+  /* Mega-menu accordion: same plain-block treatment as regular submenu */
   .submenu--mega { display: none; }
   .has-dropdown[data-open="true"] > .submenu--mega {
     display: block;
-    flex-basis: 100%;
-    margin: 0 var(--gutter) .75rem var(--gutter);
-    padding: .5rem 0;
+    margin: 0 var(--gutter) .5rem;
+    padding: .35rem 0;
     border: 0;
     border-radius: 8px;
     background: var(--mist);
