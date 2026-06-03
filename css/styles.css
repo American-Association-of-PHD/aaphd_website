@@ -178,8 +178,12 @@ p { margin: 0 0 1em; }
      touch interactions can leave a sticky :hover state that bleeds through
      even at mobile viewport widths. !important here guarantees submenus
      start hidden no matter what desktop rules do. */
-  .primary-nav .submenu,
-  .primary-nav .submenu--mega { display: none !important; }
+  .primary-nav .has-dropdown > .submenu,
+  .primary-nav .has-dropdown > .submenu--mega,
+  .primary-nav .has-dropdown:hover > .submenu,
+  .primary-nav .has-dropdown:hover > .submenu--mega,
+  .primary-nav .has-dropdown:focus-within > .submenu,
+  .primary-nav .has-dropdown:focus-within > .submenu--mega { display: none !important; }
 
   /* Plain block layout for the mobile menu — no flex, no positioning tricks. */
   .primary-nav > ul { gap: 0; padding: 1.75rem 0 .5rem 0; }   /* 1.75rem top breathing room below the header */
@@ -228,7 +232,9 @@ p { margin: 0 0 1em; }
   .has-dropdown[data-open="true"] > a { color: var(--coral-700); }
 
   /* Submenu open state — !important to win over the defensive hide above */
-  .primary-nav .has-dropdown[data-open="true"] > .submenu {
+  .primary-nav .has-dropdown[data-open="true"] > .submenu,
+  .primary-nav .has-dropdown[data-open="true"]:hover > .submenu,
+  .primary-nav .has-dropdown[data-open="true"]:focus-within > .submenu {
     display: block !important;
     margin: 0 var(--gutter) .5rem;
     padding: .35rem 0;
@@ -351,7 +357,9 @@ p { margin: 0 0 1em; }
   /* Mega-menu accordion: same plain-block treatment as regular submenu.
      The defensive force-hide of .submenu / .submenu--mega lives in the
      primary mobile block above. */
-  .primary-nav .has-dropdown[data-open="true"] > .submenu--mega {
+  .primary-nav .has-dropdown[data-open="true"] > .submenu--mega,
+  .primary-nav .has-dropdown[data-open="true"]:hover > .submenu--mega,
+  .primary-nav .has-dropdown[data-open="true"]:focus-within > .submenu--mega {
     display: block !important;
     margin: 0 var(--gutter) .5rem;
     padding: .35rem 0;
