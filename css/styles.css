@@ -228,8 +228,15 @@ p { margin: 0 0 1em; }
     transform: translateY(-25%) rotate(225deg);
   }
 
-  /* Open state: bold coral on the top-level row */
-  .has-dropdown[data-open="true"] > a { color: var(--coral-700); }
+  /* Override the .is-active coral on mobile — keeps all main menu items in
+     uniform navy so no section "pops" just because you're inside it. The
+     active-section indicator still applies on desktop where it reads as a
+     helpful "you are here" cue rather than an inconsistency. */
+  .primary-nav .has-dropdown > a.is-active { color: var(--navy-900); }
+
+  /* Open state: bold coral on the top-level row (when you tap to expand it) */
+  .has-dropdown[data-open="true"] > a,
+  .primary-nav .has-dropdown[data-open="true"] > a.is-active { color: var(--coral-700); }
 
   /* Submenu open state — !important to win over the defensive hide above */
   .primary-nav .has-dropdown[data-open="true"] > .submenu,
