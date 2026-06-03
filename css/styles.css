@@ -172,12 +172,17 @@ p { margin: 0 0 1em; }
     z-index: 60;
   }
 
-  /* Plain block layout for the mobile menu — no flex, no positioning tricks.
-     Every previous attempt used flex-wrap with flex-basis:100% to make submenus
-     wrap below their parents, but on iOS Chrome that silently fails and the
-     submenu ends up as a right-column sibling instead. Pure block layout
-     guarantees stacked rows that work everywhere. */
-  .primary-nav > ul { gap: 0; padding: .5rem 0; }
+  /* DEFENSIVE: force-hide every submenu on mobile by default. The base
+     .submenu rule already does display:none, but the desktop @media block
+     defines .has-dropdown:hover > .submenu { display: block } — and on iOS
+     touch interactions can leave a sticky :hover state that bleeds through
+     even at mobile viewport widths. !important here guarantees submenus
+     start hidden no matter what desktop rules do. */
+  .primary-nav .submenu,
+  .primary-nav .submenu--mega { display: none !important; }
+
+  /* Plain block layout for the mobile menu — no flex, no positioning tricks. */
+  .primary-nav > ul { gap: 0; padding: 1.75rem 0 .5rem 0; }   /* 1.75rem top breathing room below the header */
   .primary-nav > ul > li { display: block; }
   .primary-nav > ul > li:not(.has-dropdown) { padding: .25rem var(--gutter); }
   .primary-nav > ul > li:not(.has-dropdown) .cta,
@@ -192,7 +197,7 @@ p { margin: 0 0 1em; }
   /* The chevron toggle button is HIDDEN on mobile — the whole row is the
      tap target instead, and we draw a chevron indicator on the link itself
      via ::after below. */
-  .has-dropdown > .dropdown-toggle { display: none; }
+  .has-dropdown > .dropdown-toggle { display: none !important; }
 
   /* Top-level link: full-width row, bold, with a chevron indicator on the right */
   .has-dropdown > a {
@@ -222,11 +227,9 @@ p { margin: 0 0 1em; }
   /* Open state: bold coral on the top-level row */
   .has-dropdown[data-open="true"] > a { color: var(--coral-700); }
 
-  /* Submenu: HIDDEN by default; shown only when its parent has data-open="true".
-     The base .submenu rule (display: none) already does the hiding — these
-     rules just style the open state. */
-  .has-dropdown[data-open="true"] > .submenu {
-    display: block;
+  /* Submenu open state — !important to win over the defensive hide above */
+  .primary-nav .has-dropdown[data-open="true"] > .submenu {
+    display: block !important;
     margin: 0 var(--gutter) .5rem;
     padding: .35rem 0;
     border: 0;
@@ -345,10 +348,11 @@ p { margin: 0 0 1em; }
 }
 
 @media (max-width: 1099px) {
-  /* Mega-menu accordion: same plain-block treatment as regular submenu */
-  .submenu--mega { display: none; }
-  .has-dropdown[data-open="true"] > .submenu--mega {
-    display: block;
+  /* Mega-menu accordion: same plain-block treatment as regular submenu.
+     The defensive force-hide of .submenu / .submenu--mega lives in the
+     primary mobile block above. */
+  .primary-nav .has-dropdown[data-open="true"] > .submenu--mega {
+    display: block !important;
     margin: 0 var(--gutter) .5rem;
     padding: .35rem 0;
     border: 0;
