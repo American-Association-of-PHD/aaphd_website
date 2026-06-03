@@ -274,13 +274,50 @@ p { margin: 0 0 1em; }
 }
 
 @media (max-width: 1099px) {
+  /* Make the open mobile nav scrollable when it's taller than the viewport.
+     Without this, items past the visible bottom (Get Involved, Foundation, CTAs)
+     are unreachable because the nav is absolutely positioned with no overflow. */
+  [data-nav-open="true"] .primary-nav {
+    max-height: calc(100vh - 90px);
+    max-height: calc(100dvh - 90px);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Larger tap target for the chevron buttons */
+  .has-dropdown > .dropdown-toggle {
+    width: 44px; height: 44px;
+  }
+
+  /* Mega-menu accordion: match the visual treatment of regular submenu
+     (indent + coral border) so Get Involved / Foundation align with About,
+     Resources, etc. */
   .submenu--mega { display: none; }
-  .has-dropdown[data-open="true"] > .submenu--mega { display: block; }
-  .submenu--mega .submenu__group + .submenu__group { margin-top: .35rem; }
+  .has-dropdown[data-open="true"] > .submenu--mega {
+    display: block;
+    flex-basis: 100%;
+    margin: .25rem 0 .5rem .75rem;
+    padding-left: .75rem;
+    border-left: 2px solid var(--coral);
+  }
+  .submenu--mega .submenu__group + .submenu__group {
+    margin-top: .5rem;
+    padding-top: .5rem;
+    border-top: 1px solid rgba(15, 42, 78, .06);
+  }
+  .submenu--mega .submenu__heading {
+    padding: .35rem .85rem .15rem;
+    font-size: var(--fs-xs);
+    margin-top: .25rem;
+  }
+  .submenu--mega .submenu__group ul { margin: 0; padding: 0; list-style: none; }
+  .submenu--mega .submenu__group li { margin: 0; }
   .submenu--mega a {
     display: block;
     padding: .55rem .85rem;
     font-size: var(--fs-sm);
+    font-weight: 500;
     border-radius: 8px;
     color: var(--ink);
   }
