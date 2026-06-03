@@ -68,6 +68,13 @@ p { margin: 0 0 1em; }
   background: rgba(250, 247, 242, .85);
   backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px);
   border-bottom: 1px solid rgba(15, 42, 78, .08); }
+/* MOBILE FIX: backdrop-filter on the header creates a containing block for
+   any position:fixed descendants — that's why the mobile menu was being
+   constrained to the header's height (~85px) instead of filling the
+   viewport. Disable it on mobile and use a solid background instead. */
+@media (max-width: 1099px) {
+  .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--paper); }
+}
 .site-header__inner { display: flex; align-items: center; gap: 1rem; min-height: 85px; padding-block: .5rem; }
 .brand { display: inline-flex; align-items: center; gap: .75rem; }
 .brand img { height: 69px; width: auto; } /* +10% over previous 63px; 44% larger than iter 05's 48px */
