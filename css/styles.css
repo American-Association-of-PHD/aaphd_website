@@ -101,17 +101,15 @@ p { margin: 0 0 1em; }
 [data-nav-open="true"] .primary-nav {
   display: block;
   position: fixed;
-  left: 0; right: 0;
-  top: 85px;    /* sits flush under the sticky site-header (min-height 85px) */
-  bottom: 0;    /* extends to bottom of viewport — gives a definite container height */
+  inset: 0;                       /* fill the entire visible viewport — most reliable on iOS Chrome */
+  padding: 85px 0 2rem 0;          /* reserve space at top for the sticky header */
   background: var(--paper);
-  padding: 1rem var(--gutter) 2rem;
-  border-top: 1px solid rgba(15, 42, 78, .08);
-  box-shadow: var(--shadow-md);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior: contain;
-  z-index: 49;  /* under the sticky header (z-index 50) so the close button stays tappable */
+  z-index: 49;                    /* under the sticky header (z-index 50) so the hamburger close button stays tappable */
+  border: 0;
+  box-shadow: none;
 }
 @media (min-width: 1100px) {
   .nav-toggle { display: none; }
@@ -158,13 +156,10 @@ p { margin: 0 0 1em; }
 
 /* MOBILE: chevron toggles accordion submenu */
 @media (max-width: 1099px) {
-  /* Override the open-nav panel's outer padding so rows can run edge to edge */
-  [data-nav-open="true"] .primary-nav { padding-left: 0; padding-right: 0; padding-top: 0; }
-
   /* Full-bleed top-level rows with subtle dividers between them */
   .primary-nav > ul { gap: 0; }
   .primary-nav > ul > li {
-    border-bottom: 1px solid rgba(15, 42, 78, .06);
+    border-bottom: 1px solid rgba(15, 42, 78, .08);
   }
   .primary-nav > ul > li:last-child { border-bottom: none; }
   /* Non-dropdown CTAs (Member Login, Donate, Become a Member) get a little breathing room */
@@ -178,41 +173,39 @@ p { margin: 0 0 1em; }
   }
   .has-dropdown > a {
     flex: 1; min-width: 0;
-    padding: 1rem var(--gutter);
+    padding: 1.15rem var(--gutter);
     border-radius: 0;
+    font-weight: 600;
   }
   .has-dropdown > a:hover { background: rgba(15, 42, 78, .04); }
   .has-dropdown > .dropdown-toggle {
-    width: 56px; min-height: 100%;
+    width: 60px; align-self: stretch;
     margin: 0;
     border-radius: 0;
     color: var(--navy-700);
-    border-left: 1px solid rgba(15, 42, 78, .06);
+    border-left: 1px solid rgba(15, 42, 78, .08);
   }
   .has-dropdown > .dropdown-toggle:hover { background: rgba(15, 42, 78, .04); }
 
-  /* When a dropdown is open, tint the whole row to visually group it with its submenu */
-  .has-dropdown[data-open="true"] {
-    background: rgba(15, 42, 78, .025);
-  }
-
-  /* Submenu — clean indented list, no rounded corners, no border, full bleed */
+  /* AAPD-style: when a dropdown is open, the submenu sits in a clear light-gray panel
+     that visually groups all its items together and separates them from the rest of the nav. */
   .has-dropdown[data-open="true"] > .submenu {
     display: block;
     flex-basis: 100%;
     margin: 0;
-    padding: 0 0 .5rem 0;
+    padding: .5rem 0;
     border: 0;
+    background: var(--mist);
   }
   .submenu a {
     display: block;
-    padding: .65rem var(--gutter) .65rem calc(var(--gutter) + 1rem);
+    padding: .7rem var(--gutter) .7rem calc(var(--gutter) + 1.25rem);
     font-size: var(--fs-sm);
     font-weight: 500;
     color: var(--ink);
     border-radius: 0;
   }
-  .submenu a:hover { background: rgba(15, 42, 78, .05); color: var(--navy-700); }
+  .submenu a:hover { background: rgba(15, 42, 78, .06); color: var(--navy-700); }
 }
 
 /* DESKTOP: hover / focus reveals dropdown panel */
@@ -316,25 +309,26 @@ p { margin: 0 0 1em; }
 }
 
 @media (max-width: 1099px) {
-  /* Mega-menu accordion: same full-bleed, clean-row treatment as regular submenu */
+  /* Mega-menu accordion: same light-gray panel treatment as regular submenu */
   .submenu--mega { display: none; }
   .has-dropdown[data-open="true"] > .submenu--mega {
     display: block;
     flex-basis: 100%;
     margin: 0;
-    padding: 0 0 .5rem 0;
+    padding: .5rem 0;
     border: 0;
+    background: var(--mist);
   }
   .submenu--mega .submenu__group ul { margin: 0; padding: 0; list-style: none; }
   .submenu--mega .submenu__group li { margin: 0; }
   .submenu--mega .submenu__group + .submenu__group {
-    margin-top: 0;
-    padding-top: 0;
-    border-top: 1px solid rgba(15, 42, 78, .04);
+    margin-top: .25rem;
+    padding-top: .25rem;
+    border-top: 1px solid rgba(15, 42, 78, .08);
   }
   .submenu--mega .submenu__heading {
     display: block;
-    padding: .7rem var(--gutter) .15rem calc(var(--gutter) + 1rem);
+    padding: .7rem var(--gutter) .25rem calc(var(--gutter) + 1.25rem);
     font-size: var(--fs-xs);
     font-weight: 700;
     letter-spacing: .14em;
@@ -344,13 +338,13 @@ p { margin: 0 0 1em; }
   }
   .submenu--mega a {
     display: block;
-    padding: .65rem var(--gutter) .65rem calc(var(--gutter) + 1rem);
+    padding: .7rem var(--gutter) .7rem calc(var(--gutter) + 1.25rem);
     font-size: var(--fs-sm);
     font-weight: 500;
     border-radius: 0;
     color: var(--ink);
   }
-  .submenu--mega a:hover { background: rgba(15, 42, 78, .05); color: var(--navy-700); }
+  .submenu--mega a:hover { background: rgba(15, 42, 78, .06); color: var(--navy-700); }
   .submenu--mega a[target="_blank"]::after { content: " ↗"; opacity: .55; font-size: .85em; }
 }
 
