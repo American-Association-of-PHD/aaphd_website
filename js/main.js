@@ -17,27 +17,45 @@
     });
   }
 
-  // ---- Dropdown toggles (chevrons) ----
+  // ---- Dropdown toggles (chevrons + whole-row tap on mobile) ----
   const dropdowns = document.querySelectorAll('.has-dropdown');
+  const isMobile = () => window.matchMedia('(max-width: 1099px)').matches;
+
+  const toggleDropdown = (li, e) => {
+    const tog = li.querySelector('.dropdown-toggle');
+    if (e) { e.preventDefault(); e.stopPropagation(); }
+    const open = li.dataset.open === 'true';
+    // Close all other open dropdowns (accordion behavior)
+    dropdowns.forEach(other => {
+      if (other !== li) {
+        other.dataset.open = 'false';
+        const t = other.querySelector('.dropdown-toggle');
+        if (t) t.setAttribute('aria-expanded', 'false');
+      }
+    });
+    li.dataset.open = String(!open);
+    if (tog) tog.setAttribute('aria-expanded', String(!open));
+  };
 
   dropdowns.forEach(li => {
     const tog = li.querySelector('.dropdown-toggle');
-    if (!tog) return;
-    tog.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      const open = li.dataset.open === 'true';
-      // Close all other open dropdowns
-      dropdowns.forEach(other => {
-        if (other !== li) {
-          other.dataset.open = 'false';
-          const t = other.querySelector('.dropdown-toggle');
-          if (t) t.setAttribute('aria-expanded', 'false');
+    const topLink = li.querySelector(':scope > a');
+
+    // Chevron button always toggles (mobile and desktop)
+    if (tog) {
+      tog.addEventListener('click', (e) => toggleDropdown(li, e));
+    }
+
+    // Mobile only: tapping the top-level link should also expand the submenu
+    // instead of navigating to the section page. Desktop still uses hover
+    // (via CSS) and direct navigation on click.
+    if (topLink) {
+      topLink.addEventListener('click', (e) => {
+        if (isMobile()) {
+          toggleDropdown(li, e);
         }
       });
-      li.dataset.open = String(!open);
-      tog.setAttribute('aria-expanded', String(!open));
-    });
+    }
   });
 
   // Click outside closes any open dropdown
