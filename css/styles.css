@@ -265,9 +265,13 @@ p { margin: 0 0 1em; }
   .has-dropdown {
     display: inline-flex; align-items: center; position: relative;
   }
-  .has-dropdown > a { padding-right: .25rem; }
+  /* Hide the chevron toggle button on desktop — it was added to the HTML
+     to support mobile tap-to-expand, but desktop opens dropdowns on hover,
+     so the chevron is visual noise here. Restores the cleaner pre-mobile-fix
+     look. */
+  .has-dropdown > a { padding-right: .65rem; }
   .has-dropdown > .dropdown-toggle {
-    padding: .35rem .25rem;
+    display: none;
   }
   .submenu {
     position: absolute; top: calc(100% + .25rem); left: 0;
