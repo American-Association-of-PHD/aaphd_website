@@ -4,10 +4,32 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0f2a4e">
 <title>Dental Public Health Residencies — AAPHD</title>
 <meta name="description" content="Accredited DPH residency programs across the United States and Canada — application deadlines and program details.">
-<link rel="icon" href="assets/logo.svg?v=202606032119" type="image/svg+xml">
+<link rel="icon" href="assets/logo.svg?v=202606112248" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=202606032119">
+<link rel="stylesheet" href="css/styles.css?v=202606112248">
+<style>
+  /* Key facts list inside each residency card */
+  .residency-facts { list-style: none; padding: 0; margin: .65rem 0 0; font-size: var(--fs-sm); }
+  .residency-facts li { padding: .25rem 0; border-top: 1px solid rgba(15,42,78,.06); display: flex; justify-content: space-between; gap: .75rem; }
+  .residency-facts li:first-child { border-top: 0; }
+  .residency-facts .label { color: var(--slate); font-weight: 500; }
+  .residency-facts .value { color: var(--ink); font-weight: 600; text-align: right; }
+
+  /* Comparison table — wide, horizontally scrollable on small screens */
+  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0 0; border: 1px solid rgba(15,42,78,.08); border-radius: var(--radius); background: var(--white); }
+  .residency-table { width: 100%; min-width: 1100px; border-collapse: collapse; font-size: var(--fs-sm); }
+  .residency-table th, .residency-table td { padding: .65rem .85rem; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(15,42,78,.06); }
+  .residency-table thead th { font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); background: var(--paper); position: sticky; top: 0; z-index: 2; }
+  .residency-table tbody th { font-weight: 700; color: var(--navy-700); background: var(--paper); position: sticky; left: 0; z-index: 1; min-width: 220px; }
+  .residency-table thead th:first-child { z-index: 3; left: 0; min-width: 220px; }
+  .residency-table tbody tr:hover td,
+  .residency-table tbody tr:hover th { background: rgba(15,42,78,.03); }
+  .residency-table .yes { color: var(--navy-700); font-weight: 600; }
+  .residency-table .no { color: var(--slate); }
+  .residency-table .empty { color: var(--slate); font-style: italic; }
+  .last-updated { font-size: var(--fs-sm); color: var(--slate); font-style: italic; margin-top: .25rem; }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -142,30 +164,207 @@
     <nav class="crumbs" aria-label="Breadcrumb"><a href="dph.html">DPH Education</a><span>›</span><span>Residencies</span></nav>
     <span class="eyebrow">Accredited DPH Residencies</span>
     <h1>Where to train.</h1>
-    <p class="lead">Accredited Dental Public Health residency programs across the United States and Canada. Program descriptions, including tuition and stipend information, can be found by clicking on selected programs.</p>
+    <p class="lead">Accredited Dental Public Health residency programs across the United States and Canada. Click any program to visit its website, or jump to the <a href="#compare">side-by-side comparison</a> below for full details.</p>
   </div>
 </section>
 
 <section>
   <div class="container">
     <div class="cards">
-      <a class="card" href="https://www.atsu.edu/college-of-graduate-health-studies/academics/dental-emphasis-dental-public-health-residency" target="_blank" rel="noopener"><h3>A.T. Still University</h3><p>Application Deadline: November 1</p></a>
-      <a class="card" href="https://www.bu.edu/academics/sdm/programs/dental-public-health/" target="_blank" rel="noopener"><h3>Boston University Goldman School of Dental Medicine</h3><p>Application Deadline: December 15</p></a>
-      <a class="card" href="https://case.edu/dental/departments-programs/community-dentistry/dental-public-health-residency-program/how-apply-dental-public-health-residency" target="_blank" rel="noopener"><h3>Case Western Reserve University</h3><p>Application Deadline: December 15</p></a>
-      <a class="card" href="https://www.cdc.gov/oralhealth/about/residency-program.html" target="_blank" rel="noopener"><h3>Centers for Disease Control and Prevention</h3><p>Application Deadline: September 27</p></a>
-      <a class="card" href="https://www.dentistry.utoronto.ca/prospective-students/postgraduate/clinical-training/dental-public-health" target="_blank" rel="noopener"><h3>Faculty of Dentistry, University of Toronto</h3><p>Application Window: April 1 – January 15</p></a>
-      <a class="card" href="http://hsdm.harvard.edu/dental-public-health" target="_blank" rel="noopener"><h3>Harvard School of Dental Medicine</h3><p>Application Deadline: January 1</p></a>
-      <article class="card card--static"><h3>Jacobi Medical Center</h3><p>Application Deadline: January 1</p></article>
-      <a class="card" href="https://www.nidcr.nih.gov/careers-training/interns-fellows/graduate-students/dental-public-health-research-fellowship" target="_blank" rel="noopener"><h3>National Institute of Dental and Craniofacial Research</h3><p>Application Deadline: November 21</p></a>
-      <a class="card" href="https://www.urmc.rochester.edu/dentistry/education/nys-dental-public-health-residency.aspx" target="_blank" rel="noopener"><h3>NY State DPH Residency / Eastman Institute</h3><p>Application Deadline: November 30</p></a>
-      <a class="card" href="https://publichealth.nc.gov/oralhealth/partners/Residency.htm" target="_blank" rel="noopener"><h3>North Carolina Division of Public Health</h3><p>Application Deadline: November 1</p></a>
-      <a class="card" href="https://www.temple.edu/academics/degree-programs/dental-public-health-certificate-graduate-dn-dph-dent" target="_blank" rel="noopener"><h3>Temple University — Kornberg School of Dentistry</h3><p>Application Deadline: October 1</p></a>
-      <a class="card" href="https://www.unlv.edu/dental/academic-programs" target="_blank" rel="noopener"><h3>UNLV School of Dental Medicine</h3><p>Application Deadline: May 1</p></a>
-      <a class="card" href="https://www.uthscsa.edu/academics/dental/programs/dental-public-health-residency" target="_blank" rel="noopener"><h3>UT Health San Antonio</h3><p>Application Deadline: December 1</p></a>
-      <a class="card" href="https://dentistry.tamu.edu/departments/public-health/graduate-program.html" target="_blank" rel="noopener"><h3>Texas A&amp;M School of Dentistry</h3><p>Application Deadline: November 1</p></a>
-      <a class="card" href="https://dentistry.uiowa.edu/pcd/dph-grad" target="_blank" rel="noopener"><h3>University of Iowa College of Dentistry</h3><p>Application Deadline: November 1</p></a>
-      <a class="card" href="https://dentistry.ucsf.edu/programs/post-grad/dental-public-health" target="_blank" rel="noopener"><h3>University of California, San Francisco</h3><p>Application Deadline: December 1</p></a>
+      <a class="card" href="https://www.atsu.edu/college-of-graduate-health-studies/academics/dental-emphasis-dental-public-health-residency" target="_blank" rel="noopener">
+        <h3>A.T. Still University</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">25 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">No</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://www.bu.edu/academics/sdm/programs/dental-public-health/" target="_blank" rel="noopener">
+        <h3>Boston University Goldman School of Dental Medicine</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12–36 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">No</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://dentistry.ucsf.edu/programs/post-grad/dental-public-health" target="_blank" rel="noopener">
+        <h3>University of California, San Francisco</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">If eligible</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://case.edu/dental/departments-programs/community-dentistry/dental-public-health-residency-program/how-apply-dental-public-health-residency" target="_blank" rel="noopener">
+        <h3>Case Western Reserve University</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12–24 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://www.dentistry.utoronto.ca/prospective-students/postgraduate/clinical-training/dental-public-health" target="_blank" rel="noopener">
+        <h3>Faculty of Dentistry, University of Toronto</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">24–48 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">Small grants in yr 2</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="http://hsdm.harvard.edu/dental-public-health" target="_blank" rel="noopener">
+        <h3>Harvard School of Dental Medicine</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">24–36 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">If eligible</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://dentistry.uiowa.edu/pcd/dph-grad" target="_blank" rel="noopener">
+        <h3>University of Iowa College of Dentistry</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">24 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">No</span></li>
+          <li><span class="label">Stipend</span><span class="value">Yes</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <article class="card card--static">
+        <h3>Jacobi Medical Center</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">Yes</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">No</span></li>
+        </ul>
+      </article>
+      <a class="card" href="https://www.nidcr.nih.gov/careers-training/interns-fellows/graduate-students/dental-public-health-research-fellowship" target="_blank" rel="noopener">
+        <h3>National Institute of Dental and Craniofacial Research</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">36 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">Yes</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">No</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://www.urmc.rochester.edu/dentistry/education/nys-dental-public-health-residency.aspx" target="_blank" rel="noopener">
+        <h3>Eastman Institute for Oral Health</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://publichealth.nc.gov/oralhealth/partners/Residency.htm" target="_blank" rel="noopener">
+        <h3>North Carolina Division of Public Health</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">No</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://www.temple.edu/academics/degree-programs/dental-public-health-certificate-graduate-dn-dph-dent" target="_blank" rel="noopener">
+        <h3>Temple University Maurice H. Kornberg School of Dentistry</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://www.unlv.edu/dental/academic-programs" target="_blank" rel="noopener">
+        <h3>UNLV School of Dental Medicine</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12 or 24 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://www.uthscsa.edu/academics/dental/programs/dental-public-health-residency" target="_blank" rel="noopener">
+        <h3>UT Health San Antonio</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">—</span></li>
+          <li><span class="label">MPH required</span><span class="value">—</span></li>
+          <li><span class="label">Stipend</span><span class="value">—</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">—</span></li>
+        </ul>
+      </a>
+      <a class="card" href="https://dentistry.tamu.edu/departments/public-health/graduate-program.html" target="_blank" rel="noopener">
+        <h3>Texas A&amp;M School of Dentistry</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">12 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </a>
+      <article class="card card--static">
+        <h3>Tufts School of Dental Medicine</h3>
+        <ul class="residency-facts">
+          <li><span class="label">Length</span><span class="value">24 months</span></li>
+          <li><span class="label">MPH required</span><span class="value">Yes</span></li>
+          <li><span class="label">Stipend</span><span class="value">No</span></li>
+          <li><span class="label">Tuition charged</span><span class="value">Yes</span></li>
+        </ul>
+      </article>
     </div>
+  </div>
+</section>
+
+<section id="compare" class="stripe">
+  <div class="container">
+    <span class="section-tag" style="color:#f0a988;">Compare programs</span>
+    <h2>Side-by-side details.</h2>
+    <p class="section-lede">All accredited DPH residency programs, with deadlines, length, stipend, tuition, entrance exams, and more.</p>
+    <p class="last-updated">Last updated: June 2026</p>
+    <div class="table-scroll">
+      <table class="residency-table">
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>MPH required</th>
+            <th>Length</th>
+            <th>Part-time</th>
+            <th>Additional degrees</th>
+            <th>Remote/virtual</th>
+            <th>Application deadline</th>
+            <th>Start date</th>
+            <th>Stipend</th>
+            <th>Tuition charged</th>
+            <th>Required entrance exams</th>
+            <th>ADEA PASS</th>
+            <th>International eligible</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>A.T. Still University</th><td class="no">No</td><td>25 months</td><td class="yes">Yes</td><td>MPH and Certificate in DPH</td><td class="yes">Yes</td><td>Nov 1</td><td>June 15</td><td class="no">No</td><td class="yes">Yes</td><td>NB1 &amp; 2 or INBDE; TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th>Boston University Goldman School of Dental Medicine</th><td class="no">No</td><td>12–36 months</td><td class="yes">Yes</td><td>MSD, DScD (both with Certificate in DPH)</td><td class="no">No</td><td>Jan 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th>University of California, San Francisco</th><td class="yes">Yes</td><td>12 months</td><td class="no">No</td><td>DPH certificate</td><td class="no">No</td><td>Dec 1</td><td>July 1</td><td>Yes if eligible</td><td class="yes">Yes</td><td>None (GRE for Joint Programs); TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th>Case Western Reserve University</th><td class="yes">Yes</td><td>12–24 months</td><td class="yes">Yes</td><td>MPH and Certificate in DPH</td><td class="no">No</td><td>Oct 15</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>NBDE/INBDE or GRE; TOEFL or IELTS (international)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th>Faculty of Dentistry, University of Toronto</th><td class="yes">Yes</td><td>24–48 months</td><td class="yes">Yes</td><td>MSc DPH, PhD Dentistry, MSc DPH+PhD</td><td class="no">No</td><td>Jan 15</td><td>Sept 1</td><td>No (small grants in yr 2)</td><td class="yes">Yes</td><td>TOEFL or IELTS (international)</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th>Harvard School of Dental Medicine</th><td class="yes">Yes</td><td>24–36 months</td><td class="yes">Yes</td><td>MMSc and DMSc (both with DPH certificate)</td><td class="no">No</td><td>Feb 1</td><td>July 1</td><td>Yes if eligible</td><td class="yes">Yes</td><td>TOEFL (international)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th>University of Iowa College of Dentistry</th><td class="no">No</td><td>24 months</td><td class="yes">Yes</td><td>MS, PhD</td><td class="no">No</td><td>Nov 1</td><td>July 1</td><td class="yes">Yes</td><td class="yes">Yes</td><td>TOEFL &amp; GRE</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th>Jacobi Medical Center</th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>Jan 1</td><td>July 1</td><td class="yes">Yes</td><td class="no">No</td><td>None</td><td class="yes">Yes</td><td class="no">No</td></tr>
+          <tr><th>National Institute of Dental and Craniofacial Research</th><td class="yes">Yes</td><td>36 months</td><td class="no">No</td><td>Certificate in DPH; Certificate in Oral Health Research</td><td class="no">No</td><td>Dec 31</td><td>July 1</td><td class="yes">Yes</td><td class="no">No</td><td>None</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th>Eastman Institute for Oral Health</th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>Feb 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th>North Carolina Division of Public Health</th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>Nov 1</td><td>July 1</td><td class="no">No</td><td class="no">No</td><td>TOEFL</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th>Temple University Maurice H. Kornberg School of Dentistry</th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>DPH/AEGD track</td><td class="no">No</td><td>Sept 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>None</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th>UNLV School of Dental Medicine</th><td class="yes">Yes</td><td>12 or 24 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>May 1</td><td>August</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="no">No</td><td class="no">No</td></tr>
+          <tr><th>UT Health San Antonio</th><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td></tr>
+          <tr><th>Texas A&amp;M School of Dentistry</th><td class="yes">Yes</td><td>12 months</td><td>Currently no</td><td>—</td><td class="no">No</td><td>Nov 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>INBDE; TOEFL (international)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th>Tufts School of Dental Medicine</th><td class="yes">Yes</td><td>24 months</td><td class="no">No</td><td>—</td><td class="no">No</td><td>Feb 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top: 1rem; font-size: var(--fs-sm);">*MPH = Master of Public Health (or equivalent). ADEA PASS = Postdoctoral Application Support Service. Information self-reported by programs and may change — always verify with the program directly before applying.</p>
   </div>
 </section>
 
@@ -181,6 +380,6 @@
   <div class="colophon"><span>&copy; 1937–2026 American Association of Public Health Dentistry</span><span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a></span></div>
 </div></footer>
 
-<script src="js/main.js?v=202606032119" defer></script>
+<script src="js/main.js?v=202606112248" defer></script>
 </body>
 </html>
