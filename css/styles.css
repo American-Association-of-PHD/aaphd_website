@@ -122,7 +122,7 @@ p { margin: 0 0 1em; }
   .nav-toggle { display: none; }
   .primary-nav { display: block; margin-left: auto; }
   .primary-nav > ul { flex-direction: row; align-items: center; gap: .15rem; }
-  .primary-nav a { padding: .55rem .65rem; font-size: var(--fs-sm); }
+  .primary-nav a { padding: .55rem .65rem; font-size: var(--fs-sm); white-space: nowrap; }
   .primary-nav .cta { margin-top: 0; margin-left: .5rem; padding: .6rem 1rem; border-radius: 999px; }
   .primary-nav .login-btn { display: none; } /* desktop uses utility bar instead */
   [data-nav-open="true"] .primary-nav { position: static; box-shadow: none; padding: 0; background: transparent; border: 0; overflow: visible; }
