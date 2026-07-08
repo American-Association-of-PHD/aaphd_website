@@ -1,143 +1,90 @@
-# Website Design — Iteration 06
+# AAPHD Website
 
-**Date:** 2026-05-03 (updated 2026-05-04)
-**Files:** all 50 pages from iter 05 + 1 new hub page (`get-involved.html`) = 51 HTML pages
+This repository holds the source files for the AAPHD website.
 
-## What changed vs. Iteration 05
+## Live site
 
-The single theme of iter 06: **navigation IA overhaul.** Iter 05 introduced dropdown behavior on the existing 9-item nav. Iter 06 redesigns the menu itself for more intuitive navigation, consistent naming, and reduced cognitive load.
+**Current (temporary):** https://factorup.github.io/aaphd_website/
+Hosted on GitHub Pages, deployed from this repository.
 
-### Top-level menu: 9 items → 7 items
+**Planned final home:** **https://aaphd.org**
+The site will migrate to Netlify (under AAPHD's own workspace) and replace the current WordPress site at aaphd.org. Timing is TBD.
 
-| Iter 05 | Iter 06 |
-|---|---|
-| About | About |
-| Dental Public Health | Dental Public Health |
-| Join | **Membership** |
-| Attend | **Events** |
-| Learn | **Resources** |
-| Lead | *merged* ↘ |
-| Recognize | *merged* ↘ |
-| Students | *merged* ↘ |
-| — | **Get Involved** *(new — combines Lead + Recognize + Students)* |
-| Foundation | Foundation |
+## Where the source files live
 
-All labels are now nouns (was: 5 verbs + 4 nouns mixed).
+**This GitHub repository is the source of truth. There is no other copy that matters.**
 
-### Submenu changes — naming conventions
+Any file changes committed to the `main` branch auto-deploy to the live site within about a minute. There is no manual publish step.
 
-Redundant prefixes dropped now that the parent menu carries the context:
+### What is *not* the website source
 
-- AAPHD DPH Curriculum → **Curriculum**
-- DPH Residencies → **Residencies**
-- DPH Code of Ethics → **Code of Ethics**
-- AAPHD Merit Awards → **Merit Awards**
-- AAPHD Councils → **Councils**
-- AAPHD Foundation General Fund → **General Fund**
-- Contact AAPHD → **Contact**
-- Resources (under DPH) → **Practice Resources**
+- **The AAPHD Google Shared Drive** is for board materials, financial records, meeting notes, and other organizational documents. **Editing files in the Shared Drive will not change the website.** Please do not copy website files into the Shared Drive — a stale duplicate creates confusion and drifts out of sync with what's actually live.
+- **Any downloaded copy** of the site on someone's local computer is a snapshot in time and should be treated as read-only.
+- **The WordPress site currently at aaphd.org** is a separate legacy site being replaced by this one during the migration.
 
-Clarified ambiguous labels:
+## How changes reach the live site
 
-- EDI Corner → **EDI Hub**
-- Policies & Publications → **Position Statements & Publications**
-- Sample By-Laws → **Sample Bylaws**
-- Student Chapter Handbook → **Chapter Handbook**
+1. A developer edits the files in a local working copy of this repository.
+2. The changes are committed and pushed to the `main` branch on GitHub.
+3. GitHub Pages auto-deploys within about a minute.
 
-Long memorial-fund titles trimmed to fit a dropdown:
+Any commit to `main` is live. There is no staging site (yet).
 
-- Dr. R. Gary Rozier Memorial Fund → **Rozier Memorial Fund**
-- Brian Burt Memorial Fund → **Burt Memorial Fund**
+### A note for non-developers
 
-### Year-specific items removed from nav (evergreen)
+The GitHub website has an edit button (pencil icon) on every file. Clicking it and then "Commit changes" publishes the edit to the live site immediately. Please do not use this unless you know exactly what you're changing and have coordinated with whoever maintains the site.
 
-These pages still exist as files; they just don't take up nav real estate:
+## Planned migration to Netlify + aaphd.org
 
-- 2026 Merit Award Winners — now lives on the Merit Awards parent page
-- 2026 Student Award Winners — now lives on the Student Awards parent page
-- 2025 Annual Report → **Annual Report** (label is generic; always points to latest)
+When the redesign is approved and ready for launch, three things move at once:
 
-### Submenu organization — mega menus
+1. **Hosting:** GitHub Pages → **Netlify** (AAPHD-owned workspace)
+2. **Domain:** `factorup.github.io/aaphd_website/` → **`aaphd.org`** (replacing the WordPress site currently there)
+3. **Repository ownership:** `FactorUp/aaphd_website` → an **AAPHD-owned GitHub organization**
 
-Two menus now use a grouped, multi-column "mega menu" layout:
+The edit → commit → auto-deploy workflow stays the same; only where the deploy runs changes. Netlify offers additional features (form handling, redirects, cache-control headers) that we can adopt post-migration.
 
-**Get Involved** (3 groups, consolidates 11 sub-items)
-- *Volunteer Leadership* — Councils, Standing Committees, EDI Committee, Trainer & Speaker Network
-- *Awards* — Merit Awards, Student Awards
-- *Student Chapters* — Starting a Chapter, Chapter Approval Process, Chapter Handbook, Sample Bylaws, Student Symposium
+## Who to contact
 
-**Foundation** (4 groups, consolidates 10 sub-items)
-- *About the Foundation* — Foundation Committee, Annual Report, Pledge Drive↗
-- *Scholarships* — Horowitz Scholarship, Doherty Scholarship
-- *Memorial Funds* — Burt Memorial Fund, Lotzkar Fund, Rozier Memorial Fund
-- *Other Funds* — General Fund, Small Grants Program
+- **For content questions and priorities:** Julie Reynolds (AAPHD President, through April 2027), then AAPHD's Executive Director office.
+- **For technical/code changes:** FactorUp (the current developer) until handoff is complete, then whoever AAPHD engages as the successor developer.
 
-On desktop these render as multi-column grids inside the dropdown panel; on mobile they stack with their group headings as section dividers.
+## Technical notes for developers
 
-### About menu — reordered for user intent
+This is a **static HTML site** — no build tool, no framework, no server-side code. Any text editor works. Every page is standalone HTML that references shared CSS (`css/styles.css`) and JS (`js/main.js`).
 
-Past sequence: Mission · Board · Past Presidents · Executive Director · Sponsors · Partners · Contact AAPHD
-New sequence: Mission · Board · **Executive Director** · Past Presidents · **Institutional Partners** · National Sponsors · Contact
+**Structure:**
+- ~50 top-level pages at the repository root
+- 21 additional pages for EDI Hub articles (`learn-edi-*.html`)
+- Every page carries its own copy of the nav, footer, favicon link, and head metadata — there is no shared template. Global changes (nav, footer, favicon) must be applied to every HTML file. Use `grep -L "<new-thing>" *.html` after any global change to confirm zero misses.
 
-(ED moved up next to the Board — current operational leadership before historical figures. Institutional Partners moved ahead of National Sponsors.)
+**Fonts:**
+- Inter (via Google Fonts) — body, UI, and H2/H3/H4
+- Fraunces (via Google Fonts) — H1 headings only
 
-### Terminology updates (2026-05-04)
+**Colors:**
+- Defined once as CSS custom properties at the top of `css/styles.css`. Any palette change is a one-place edit that cascades to every element.
 
-A round of label refinements after first review:
+**Cache-busting:**
+- CSS, JS, and the favicon are referenced with a `?v=YYYYMMDDHHMM` query string on every page (68 total references).
+- Any commit that modifies `css/styles.css`, `js/main.js`, or `assets/logo.svg` should bump this version across all HTML pages in one pass. GitHub Pages caches assets for 10 minutes, and mobile browsers cache more aggressively; without the version bump, users see stale content until their cache expires.
+- Bump script (from repository root):
+  ```bash
+  python3 -c "
+  import re, glob, time
+  v = time.strftime('%Y%m%d%H%M')
+  for f in glob.glob('*.html'):
+      c = open(f).read()
+      c = re.sub(r'styles\.css\?v=[^\"]*', f'styles.css?v={v}', c)
+      c = re.sub(r'main\.js\?v=[^\"]*',    f'main.js?v={v}',    c)
+      c = re.sub(r'logo\.svg\?v=[^\"]*',   f'logo.svg?v={v}',   c)
+      open(f, 'w').write(c)
+  "
+  ```
+- Once we're on Netlify, this whole system can be replaced with a proper `Cache-Control` header. It's fine to leave in the meantime.
 
-- **"The Specialty" → "Dental Public Health"** in the main menu bar. The shorter label was ambiguous to non-DPH visitors; the full name is what the field is actually called.
-- **"Institutional Partners" → "Institutional Members"** site-wide. These organizations *are* AAPHD members through the institutional program — the prior label undersold the relationship. The page filename was renamed accordingly (`about-institutional-partners.html` → `about-institutional-members.html`) and all 51 nav references updated.
-- **Home hero lede rewritten** to lead with the "why" (oral health is essential to overall health; equity is the imperative) instead of describing what the organization does. The old copy described programs and activities; the new copy describes purpose.
+**Deploy:**
+- GitHub Pages watches the `main` branch. There is no `.github/workflows/` folder and no build step. Push to `main`, done.
 
-### Landing-page CTA refresh
-
-A new **Donate** button now lives in the primary nav alongside *Become a Member*. It uses a coral ghost style (transparent with coral border) so it pairs visually with the solid coral *Join* CTA without competing.
-
-| | Color | Treatment | Links to |
-|---|---|---|---|
-| **Donate** | Coral (ghost) | Outlined button | Foundation Pledge Drive ↗ |
-| **Become a Member** | Coral (solid) | Filled button | join-renew.html |
-
-The home-page hero secondary CTA also changed from *About AAPHD* (informational) to **Support the Foundation** (action), pairing membership and giving as the two primary calls-to-action above the fold.
-
-### New page: `get-involved.html`
-
-A hub page for the merged Get Involved section. Lays out three tracks:
-1. **Volunteer Leadership** — links to the four councils, standing committees, EDI Committee, and Trainer & Speaker Network
-2. **Awards** — Merit Awards, Student Awards
-3. **Student Chapters** — five chapter resources
-
-Includes a "not sure where you fit?" CTA pointing to Contact.
-
-## Implementation files
-
-- **`css/styles.css`** — added `.submenu--mega` (desktop CSS Grid, mobile stacked), `.submenu__group`, `.submenu__heading`, `.cta--ghost` (Donate). Updated right-edge alignment rule from last-4 to last-5 children to catch the wider Get Involved mega menu.
-- **`js/main.js`** — **unchanged.** The existing dropdown logic operates on `.has-dropdown[data-open]` regardless of submenu structure, so mega menus work without JS changes.
-- **All 50 carried-over HTML files** — nav block + footer Get Involved/Programs columns updated.
-- **`get-involved.html`** — new hub page.
-- **`index.html`** — hero secondary CTA updated.
-
-## Try it
-
-1. Open `index.html`. Note the new **Donate** button in the nav and the **Support the Foundation** secondary CTA in the hero.
-2. Hover **Get Involved** → see a 3-column dropdown with grouped headings.
-3. Hover **Foundation** → see a 4-column dropdown with grouped headings.
-4. Resize to phone width → both mega menus collapse into stacked accordion sections; group headings stay visible as section dividers.
-5. Compare iter 05 and iter 06 nav side-by-side: 9 items → 7, all-nouns, no year-specific items, scholarships and memorial funds grouped.
-
-## What's next (carry-over from prior iterations)
-
-- Logo direction (still on hold)
-- Photography sourcing — Best tier, awaiting greenlight
-- Astro / static-site scaffold translation — even more compelling now with two mega menus duplicated across 51 files
-- Real forms (contact, partnership inquiry, speaker request)
-- Site search (Pagefind)
-- Awards parent pages: surface "Recent Winners" in-page now that year-specific items are out of nav
-- Optional: promote `join.html#institutional` to its own `join-institutional.html` page (consistency with sibling pages)
-- Long-term: AAPD-style separation of the Foundation onto its own subdomain — would drop the main nav from 7 to 6 items
-
-## Decision log
-
-- **Option B chosen** over a full 6-item consolidation (Option A) and a labels-only refresh (Option C). Foundation kept as a top-level slot to preserve its branded identity.
-- AAPD navigation pattern was evaluated and explicitly **not adopted** — AAPHD's content profile (heavy Foundation, less advocacy/PAC presence) didn't map cleanly to AAPD's 6-bucket structure.
-- Year-specific labels removed from nav, but the underlying pages (`recognize-2026-merit-winners.html`, `recognize-2026-student-winners.html`, `foundation-annual-report.html`) remain as files. The nav points at parent pages; year-specific content moves into in-page sections in a follow-up iteration.
+**Historical design notes:**
+- See `docs/iteration-06-design-notes.md` for the record of the last major redesign iteration (navigation IA overhaul, May 2026). Useful context for a successor developer.
