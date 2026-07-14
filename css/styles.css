@@ -520,6 +520,10 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
   border: 1px solid transparent; cursor: pointer;
   transition: transform var(--dur) var(--ease), background var(--dur) var(--ease), color var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
 .btn--primary { background: var(--coral); color: var(--white); }
+/* Buttons inside a membership tier card span the full card width with centered
+   text, so each tier's CTA reads as a proper action at the bottom of the card
+   instead of a small pill hugged to the left. */
+.tier .btn { display: flex; width: 100%; justify-content: center; }
 .btn--primary:hover { background: var(--coral-700); color: var(--white); transform: translateY(-1px); box-shadow: var(--shadow-md); }
 .btn--ghost { background: transparent; color: var(--navy-700); border-color: rgba(15, 42, 78, .2); }
 .btn--ghost:hover { background: var(--white); color: var(--navy-900); border-color: var(--navy-700); }
