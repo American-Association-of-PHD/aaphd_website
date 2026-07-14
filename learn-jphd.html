@@ -2,12 +2,42 @@
 <html lang="en" class="no-js">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0f2a4e">
-<title>Trainer and Speaker Network — AAPHD</title>
-<meta name="description" content="AAPHD's Trainer and Speaker Network — request members to speak, lead workshops, or train teams on dental public health topics.">
+<title>Journal of Public Health Dentistry &mdash; AAPHD</title>
+<meta name="description" content="The Journal of Public Health Dentistry (JPHD) &mdash; the official peer-reviewed journal of AAPHD, published by Wiley.">
 <link rel="icon" href="assets/logo.svg?v=202607132245" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
 <link rel="stylesheet" href="css/styles.css?v=202607132245">
+<style>
+  .jphd-hero { display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: start; }
+  @media (min-width: 720px) { .jphd-hero { grid-template-columns: minmax(220px, 280px) 1fr; gap: 2.5rem; } }
+
+  .jphd-masthead {
+    aspect-ratio: 3 / 4; padding: 1.5rem; border-radius: var(--radius); background: linear-gradient(160deg, var(--navy-700), var(--navy-500));
+    color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+    box-shadow: var(--shadow-md);
+  }
+  .jphd-masthead__label { font-family: var(--font-display); font-style: italic; font-size: var(--fs-base); opacity: .9; }
+  .jphd-masthead__title { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; }
+  .jphd-masthead__pub { font-size: var(--fs-xs); opacity: .75; text-transform: uppercase; letter-spacing: .1em; }
+
+  .jphd-tagline { font-size: var(--fs-lg); color: var(--slate); margin: 0 0 1.25rem; max-width: 55ch; }
+  .jphd-links { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .5rem; }
+  .jphd-links li { padding: .35rem 0; border-bottom: 1px solid rgba(15,42,78,.08); }
+  .jphd-links li:last-child { border-bottom: 0; }
+  .jphd-links a { font-weight: 600; color: var(--navy-700); }
+  .jphd-links a::after { content: " \2192"; opacity: .6; transition: transform var(--dur) var(--ease); display: inline-block; }
+  .jphd-links a:hover::after { transform: translateX(3px); opacity: 1; }
+
+  .jphd-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 1rem 1.25rem; background: var(--mist); border-radius: var(--radius); }
+  .jphd-metrics > div { display: flex; flex-direction: column; }
+  .jphd-metric__num { font-family: var(--font-display); font-size: var(--fs-xl); color: var(--navy-700); line-height: 1; }
+  .jphd-metric__label { font-size: var(--fs-xs); color: var(--slate); text-transform: uppercase; letter-spacing: .1em; margin-top: .25rem; }
+
+  .jphd-editor { display: grid; gap: 1.5rem; grid-template-columns: 1fr; align-items: start; margin-top: 1rem; }
+  @media (min-width: 560px) { .jphd-editor { grid-template-columns: 200px 1fr; } }
+  .jphd-editor img { width: 100%; height: auto; border-radius: var(--radius); object-fit: cover; aspect-ratio: 1 / 1; }
+</style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -35,7 +65,7 @@
           </ul>
         </li>
         <li class="has-dropdown" data-open="false">
-          <a href="dph.html">DPH Education</a>
+          <a href="dph.html" class="is-active">DPH Education</a>
           <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-dph" aria-label="Toggle DPH Education menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
           <ul id="submenu-dph" class="submenu" role="menu">
             <li role="none"><a role="menuitem" href="dph-curriculum.html">Predoctoral DPH Curriculum</a></li>
@@ -71,7 +101,7 @@
           </ul>
         </li>
         <li class="has-dropdown" data-open="false">
-          <a href="get-involved.html" class="is-active">Get Involved</a>
+          <a href="get-involved.html">Get Involved</a>
           <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-getinvolved" aria-label="Toggle Get Involved menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
           <div id="submenu-getinvolved" class="submenu submenu--mega">
             <div class="submenu__group">
@@ -140,25 +170,93 @@
 
 <section class="page-hero">
   <div class="container">
-    <nav class="crumbs" aria-label="Breadcrumb"><a href="get-involved.html">Get Involved</a><span>›</span><span>Trainer &amp; Speaker Network</span></nav>
-    <h1>Speak. Train. Lead.</h1>
-    <p class="lead">A network of AAPHD members available to speak, lead workshops, and train teams on dental public health topics. Available to invited audiences nationwide.</p>
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="learn.html">Resources</a><span>&rsaquo;</span><span>Journal of Public Health Dentistry</span></nav>
+    <h1>Journal of Public Health Dentistry</h1>
   </div>
 </section>
 
 <section>
-  <div class="container split">
-    <div>
-      <span class="section-tag">For organizers</span>
-      <h2>Looking for a speaker?</h2>
-      <p>Tell us about your event — audience, format, topic interest, dates — and AAPHD will match you with members from our network.</p>
-      <a href="contact.html" class="btn btn--primary">Request a speaker</a>
+  <div class="container">
+    <div class="jphd-hero">
+      <div class="jphd-masthead" role="img" aria-label="Journal of Public Health Dentistry">
+        <span class="jphd-masthead__label">Journal of</span>
+        <span class="jphd-masthead__title">Public Health<br>Dentistry</span>
+        <span class="jphd-masthead__pub">Published by Wiley on behalf of AAPHD</span>
+      </div>
+      <div class="jphd-actions">
+        <p class="jphd-tagline">Peer-reviewed research on population oral health, dental public health practice, and health policy.</p>
+        <ul class="jphd-links">
+          <li><a href="https://onlinelibrary.wiley.com/journal/17527325" target="_blank" rel="noopener">Read the current issue</a></li>
+          <li><a href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/forauthors.html" target="_blank" rel="noopener">Instructions for authors</a></li>
+          <li><a href="https://onlinelibrary.wiley.com/journal/17527325" target="_blank" rel="noopener">Submit a manuscript</a></li>
+          <li><a href="https://aaphd.memberclicks.net/" target="_blank" rel="noopener">Member access &mdash; log in via the portal</a></li>
+        </ul>
+        <div class="jphd-metrics">
+          <div><span class="jphd-metric__num">1.8</span><span class="jphd-metric__label">Impact Factor</span></div>
+          <div><span class="jphd-metric__num">Wiley</span><span class="jphd-metric__label">Publisher</span></div>
+          <div><span class="jphd-metric__num">Open access options</span><span class="jphd-metric__label">Available</span></div>
+        </div>
+      </div>
     </div>
-    <div>
-      <span class="section-tag">For members</span>
-      <h2>Want to be in the network?</h2>
-      <p>AAPHD members in good standing are welcome to join the Trainer and Speaker Network. Submit your areas of expertise, formats you're available for, and travel preferences.</p>
-      <a href="https://aaphd.memberclicks.net/" target="_blank" rel="noopener" class="btn btn--ghost">Sign in &amp; submit profile</a>
+  </div>
+</section>
+
+<section class="stripe">
+  <div class="container">
+    <h2>About the journal.</h2>
+    <p class="section-lede">The Journal of Public Health Dentistry publishes original research, reviews, and commentary on all aspects of dental public health &mdash; including oral health epidemiology, health services research, community-based prevention, health policy, and workforce. It serves researchers, clinicians, educators, and policymakers working to improve population oral health, and is the official journal of the American Association of Public Health Dentistry.</p>
+    <p style="max-width: 60ch; margin-top: 1rem; color: rgba(255,255,255,.85);">AAPHD members receive complimentary print and digital access as part of their membership.</p>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-tag">Editor-in-Chief</span>
+    <div class="jphd-editor">
+      <img src="assets/board/robert-weyant.png" alt="Robert Weyant" width="200" height="200" loading="lazy">
+      <div>
+        <h3 style="margin: 0 0 .25em;">Robert Weyant, DMD, DrPH</h3>
+        <p style="color: var(--slate); margin: 0 0 .75em;">University of Pittsburgh School of Dental Medicine &middot; Pittsburgh, PA</p>
+        <p style="margin: 0;">Dr. Weyant serves as Editor-in-Chief of the Journal of Public Health Dentistry, guiding the journal&rsquo;s editorial direction and peer-review standards on behalf of AAPHD.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <span class="section-tag">Ways to engage</span>
+    <h2>Get involved with JPHD.</h2>
+    <div class="cards">
+      <article class="card">
+        <h3>For readers</h3>
+        <p>Browse current and past issues, search articles, and set up alerts for new content in your area.</p>
+        <a class="card__link" href="https://onlinelibrary.wiley.com/journal/17527325" target="_blank" rel="noopener">Visit JPHD on Wiley</a>
+      </article>
+      <article class="card">
+        <h3>For authors</h3>
+        <p>Submission guidelines, article types, formatting standards, and manuscript submission portal.</p>
+        <a class="card__link" href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/forauthors.html" target="_blank" rel="noopener">Author guidelines</a>
+      </article>
+      <article class="card">
+        <h3>For reviewers</h3>
+        <p>JPHD relies on volunteer peer reviewers from across dental public health. Contact the editor to volunteer.</p>
+        <a class="card__link" href="contact.html">Contact AAPHD</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="stripe">
+  <div class="container">
+    <div class="cta-band">
+      <div>
+        <h2>Not yet a member?</h2>
+        <p>Complimentary print and digital access to the Journal of Public Health Dentistry is included with AAPHD membership.</p>
+      </div>
+      <div style="text-align:right;">
+        <a href="join-renew.html" class="btn btn--primary">Join or renew</a>
+      </div>
     </div>
   </div>
 </section>
