@@ -563,7 +563,7 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
 .spotlight__link:hover::after { transform: translateX(4px); }
 
 /* Page hero (lighter than home hero, used on inner pages) */
-.page-hero { padding: clamp(2.5rem, 4vw, 4rem) 0 clamp(2rem, 3vw, 3rem);
+.page-hero { padding: clamp(1.75rem, 3vw, 3rem) 0 clamp(1.25rem, 2vw, 2rem);
   background: linear-gradient(180deg, var(--paper) 0%, #f3eee5 100%); }
 .page-hero h1 { max-width: 22ch; }
 .page-hero .lead { max-width: 60ch; }
@@ -575,7 +575,7 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
 .crumbs span { margin: 0 .5rem; opacity: .5; }
 
 /* Sections */
-section { padding-block: clamp(3rem, 6vw, 6rem); }
+section { padding-block: clamp(2rem, 4vw, 4rem); }
 section h2 { margin-bottom: 1rem; }
 .section-lede { color: var(--slate); font-size: var(--fs-lg); max-width: 60ch; margin-bottom: 2.5rem; }
 .section-tag { display: inline-flex; align-items: center; gap: .65rem; font-size: var(--fs-xs); font-weight: 700;
