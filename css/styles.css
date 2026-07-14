@@ -600,6 +600,10 @@ section h2 { margin-bottom: 1rem; }
 .card__link { margin-top: auto; font-weight: 600; color: var(--navy-700); display: inline-flex; align-items: center; gap: .35rem; }
 .card__link::after { content: "→"; transition: transform var(--dur) var(--ease); }
 .card__link:hover::after { transform: translateX(4px); }
+/* When a card has more than one link, make each full-width so the trailing
+   arrows line up on the right edge instead of ragged after variable-length text. */
+.card:has(.card__link + .card__link) .card__link { display: flex; }
+.card:has(.card__link + .card__link) .card__link::after { margin-left: auto; }
 
 /* Hub-list — for hub pages that just enumerate sub-pages */
 .hub-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .75rem; }
