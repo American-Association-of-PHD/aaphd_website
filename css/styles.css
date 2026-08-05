@@ -79,7 +79,7 @@ p { margin: 0 0 1em; }
 }
 .site-header__inner { display: flex; align-items: center; gap: 1rem; min-height: 85px; padding-block: .5rem; }
 .brand { display: inline-flex; align-items: center; gap: .75rem; }
-.brand img { height: 69px; width: auto; } /* +10% over previous 63px; 44% larger than iter 05's 48px */
+.brand img { height: 69px; width: auto; max-width: none; }
 
 /* Email obfuscation — bot-resistant address text */
 .bot-trap { display: none; }
