@@ -40,7 +40,7 @@ When the redesign is approved and ready for launch, three things move at once:
 
 1. **Hosting:** GitHub Pages → **Netlify** (AAPHD-owned workspace)
 2. **Domain:** `factorup.github.io/aaphd_website/` → **`aaphd.org`** (replacing the WordPress site currently there)
-3. **Repository ownership:** `FactorUp/aaphd_website` → an **AAPHD-owned GitHub organization**
+3. ✅ **Repository ownership** (completed August 2026): moved from `FactorUp/aaphd_website` to `American-Association-of-PHD/aaphd_website`, with all 113 commits of history preserved.
 
 The edit → commit → auto-deploy workflow stays the same; only where the deploy runs changes. Netlify offers additional features (form handling, redirects, cache-control headers) that we can adopt post-migration.
 
