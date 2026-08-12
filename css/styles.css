@@ -548,7 +548,7 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
 .spotlight { background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
   box-shadow: var(--shadow-lg); border: 1px solid rgba(15, 42, 78, .06);
   display: flex; flex-direction: column; }
-.spotlight__media { aspect-ratio: 16 / 10; position: relative; overflow: hidden;
+.spotlight__media { height: 65px; position: relative; overflow: hidden;
   background: linear-gradient(135deg, rgba(15,42,78,.55), rgba(15,42,78,.15)),
               linear-gradient(135deg, var(--navy-700), var(--navy-500)); background-size: cover, cover; background-position: center; }
 .spotlight__media::after { content: ""; position: absolute; inset: 0;
