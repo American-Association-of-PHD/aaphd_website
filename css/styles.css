@@ -630,7 +630,7 @@ section h2 { margin-bottom: 1rem; }
   overflow: hidden; display: flex; flex-direction: column;
   transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
 .news article:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.news__media { aspect-ratio: 16 / 9; background: linear-gradient(135deg, var(--navy-700), var(--navy-500)); }
+.news__media { height: 30px; background: linear-gradient(135deg, var(--navy-700), var(--navy-500)); }
 .news__media--1 { background: linear-gradient(135deg, #c44a2c, #e85d3a); }
 .news__media--2 { background: linear-gradient(135deg, #0f2a4e, #1d3d6b); }
 .news__media--3 { background: linear-gradient(135deg, #d4a437, #b8861f); }
