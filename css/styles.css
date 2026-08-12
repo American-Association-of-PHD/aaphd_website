@@ -7,7 +7,7 @@
 :root {
   --navy-900: #0a1d3a; --navy-700: #0f2a4e; --navy-500: #1d3d6b;
   --ink: #1a1f2e; --slate: #5a6b82; --mist: #e9ecf2;
-  --paper: #faf7f2; --white: #ffffff;
+  --paper: #faf7f2; --cream: #f1ece3; --white: #ffffff;
   --coral: #e85d3a; --coral-700: #c44a2c; --gold: #d4a437;
 
   --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
@@ -28,6 +28,11 @@
   --shadow-md: 0 4px 12px rgba(15,42,78,.08), 0 12px 28px rgba(15,42,78,.06);
   --shadow-lg: 0 12px 32px rgba(15,42,78,.12), 0 30px 60px rgba(15,42,78,.08);
   --ease: cubic-bezier(.2,.7,.2,1); --dur: 220ms;
+
+  /* Accent-bar height standard for card/spotlight media placeholders:
+     30px for sections with no overlaid badge/button, 65px for sections
+     where a pill-shaped badge (e.g. .spotlight__kicker) sits on top of it. */
+  --accent-h-sm: 30px; --accent-h-lg: 65px;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -548,7 +553,7 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
 .spotlight { background: var(--white); border-radius: var(--radius-lg); overflow: hidden;
   box-shadow: var(--shadow-lg); border: 1px solid rgba(15, 42, 78, .06);
   display: flex; flex-direction: column; }
-.spotlight__media { height: 65px; position: relative; overflow: hidden;
+.spotlight__media { height: var(--accent-h-lg); position: relative; overflow: hidden;
   background: linear-gradient(135deg, rgba(15,42,78,.55), rgba(15,42,78,.15)),
               linear-gradient(135deg, var(--navy-700), var(--navy-500)); background-size: cover, cover; background-position: center; }
 .spotlight__media::after { content: ""; position: absolute; inset: 0;
@@ -581,6 +586,13 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
 /* Sections */
 section { padding-block: clamp(2rem, 4vw, 4rem); }
 section h2 { margin-bottom: 1rem; }
+/* Background variant — alternate with the default paper background so
+   consecutive sections never share the same bg. --cream is pulled from
+   the homepage hero gradient's end stop, so it reads as an extension of
+   the same visual language rather than an unrelated gray. Never stack
+   two .section--tint sections back to back, or place one directly
+   against .stripe (dark) — both already read as distinct from paper. */
+.section--tint { background: var(--cream); }
 .section-lede { color: var(--slate); font-size: var(--fs-lg); max-width: 60ch; margin-bottom: 2.5rem; }
 .section-tag { display: inline-flex; align-items: center; gap: .65rem; font-size: var(--fs-xs); font-weight: 700;
   letter-spacing: .18em; text-transform: uppercase; color: var(--coral-700); margin-bottom: .85rem; }
@@ -630,7 +642,7 @@ section h2 { margin-bottom: 1rem; }
   overflow: hidden; display: flex; flex-direction: column;
   transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
 .news article:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
-.news__media { height: 30px; background: linear-gradient(135deg, var(--navy-700), var(--navy-500)); }
+.news__media { height: var(--accent-h-sm); background: linear-gradient(135deg, var(--navy-700), var(--navy-500)); }
 .news__media--1 { background: linear-gradient(135deg, #c44a2c, #e85d3a); }
 .news__media--2 { background: linear-gradient(135deg, #0f2a4e, #1d3d6b); }
 .news__media--3 { background: linear-gradient(135deg, #d4a437, #b8861f); }
