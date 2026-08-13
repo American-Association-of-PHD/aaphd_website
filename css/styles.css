@@ -103,14 +103,14 @@ p { margin: 0 0 1em; }
 .primary-nav .cta { background: var(--coral); color: var(--white); margin-top: .5rem; text-align: center; }
 .primary-nav .cta:hover { background: var(--coral-700); color: var(--white); }
 .primary-nav .cta--ghost {
-  background: transparent; color: var(--coral-700);
+  background: rgba(232, 93, 58, .08); color: var(--coral-700);
   border: 1.5px solid var(--coral); margin-top: .5rem;
 }
 .primary-nav .cta--ghost:hover { background: var(--coral); color: var(--white); border-color: var(--coral); }
 .primary-nav .login-btn {
-  border: 1px solid rgba(15,42,78,.2); margin-top: .25rem; text-align: center;
+  background: var(--white); border: 1px solid rgba(15,42,78,.2); margin-top: .25rem; text-align: center;
 }
-.primary-nav .login-btn:hover { background: var(--white); border-color: var(--navy-700); }
+.primary-nav .login-btn:hover { background: var(--mist); border-color: var(--navy-700); }
 
 [data-nav-open="true"] .primary-nav {
   display: block;
@@ -530,8 +530,8 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
    instead of a small pill hugged to the left. */
 .tier .btn { display: flex; width: 100%; justify-content: center; text-align: center; }
 .btn--primary:hover { background: var(--coral-700); color: var(--white); transform: translateY(-1px); box-shadow: var(--shadow-md); }
-.btn--ghost { background: transparent; color: var(--navy-700); border-color: rgba(15, 42, 78, .2); }
-.btn--ghost:hover { background: var(--white); color: var(--navy-900); border-color: var(--navy-700); }
+.btn--ghost { background: var(--white); color: var(--navy-700); border-color: rgba(15, 42, 78, .2); box-shadow: var(--shadow-sm); }
+.btn--ghost:hover { background: var(--mist); color: var(--navy-900); border-color: var(--navy-700); transform: translateY(-1px); box-shadow: var(--shadow-md); }
 
 /* Hero — still + spotlight */
 .hero { position: relative; overflow: hidden; isolation: isolate;
