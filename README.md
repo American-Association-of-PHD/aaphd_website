@@ -4,8 +4,12 @@ This repository holds the source files for the AAPHD website.
 
 ## Live site
 
-**Current (temporary):** https://factorup.github.io/aaphd_website/
+**Current (temporary):** https://american-association-of-phd.github.io/aaphd_website/
 Hosted on GitHub Pages, deployed from this repository.
+
+Note: the old `factorup.github.io/aaphd_website` URL (from before the August 2026 repo
+ownership transfer) is a dead, frozen snapshot — it no longer receives deploys and will
+not reflect any changes made after the transfer. Don't link to it.
 
 **Planned final home:** **https://aaphd.org**
 The site will migrate to Netlify (under AAPHD's own workspace) and replace the current WordPress site at aaphd.org. Timing is TBD.

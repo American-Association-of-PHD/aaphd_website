@@ -696,6 +696,24 @@ section h2 { margin-bottom: 1rem; }
   padding: .85rem 1rem; background: var(--mist); border-radius: 8px; }
 .tier--feature .tier__eligibility { background: rgba(255,255,255,.08); color: rgba(255,255,255,.85); }
 
+/* Contact form */
+.contact-form { display: grid; gap: 1.15rem; max-width: 640px; }
+.form-row { display: grid; gap: 1.15rem; grid-template-columns: 1fr; }
+@media (min-width: 560px) { .form-row--split { grid-template-columns: 1fr 1fr; } }
+.form-field { display: flex; flex-direction: column; gap: .4rem; }
+.form-field label { font-size: var(--fs-sm); font-weight: 600; color: var(--navy-900); }
+.form-field input, .form-field textarea {
+  font: inherit; font-size: var(--fs-base); color: var(--ink); background: var(--white);
+  border: 1px solid rgba(15, 42, 78, .18); border-radius: var(--radius); padding: .75rem .9rem;
+  transition: border-color var(--dur) var(--ease);
+}
+.form-field input:hover, .form-field textarea:hover { border-color: rgba(15, 42, 78, .3); }
+.form-field input:focus-visible, .form-field textarea:focus-visible { border-color: var(--navy-500); }
+.form-field textarea { resize: vertical; min-height: 140px; }
+.form-note { font-size: var(--fs-sm); color: var(--slate); margin: 0; }
+.contact-form .btn { justify-self: start; }
+.contact-form .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
 /* Footer */
 .site-footer { background: var(--navy-900); color: rgba(255,255,255,.78);
   padding: clamp(2.5rem, 5vw, 4rem) 0 1.5rem; margin-top: 5rem; }
