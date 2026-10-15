@@ -116,6 +116,8 @@ sits on top of it.
 | Bio card (board/committee/staff) | `.cards--bio` / `.bio-card__*` | 1:1 photo, no hover lift |
 | News card | `.news article` | White bg card with `--accent-h-sm` top bar |
 | Spotlight card | `.spotlight` | Larger feature card, `--shadow-lg`, `--accent-h-lg` top bar with overlaid kicker badge |
+| Spotlight, flyer | `.spotlight.spotlight--image` | The homepage hero card when it features an event flyer: the 65px badge strip ("Featured event"), then the square flyer, then the event text and a "Register now" button. Capped at 400px wide on desktop (full column width on phones). The flyer is decorative (empty `alt`, link hidden from the tab order) because the same details appear in the text below. Use a square flyer; for each new event replace `assets/webinar-*.jpg` and the text and registration links. |
+| Member benefit tag | `.tag--member` | A small pill with a lock icon reading "Member benefit". Put it on **any link or card that leads to a members-only (login-required) page**, such as old webinar recordings. Markup: `<span class="tag--member">Member benefit</span>`. Place it directly above a card's title (below the kicker, if there is one) or inline after a short description. Don't use it for public registration links. To check whether a link is gated, request it without a login: a redirect to `com_mclogin` means members-only. |
 | Hub list row | `.hub-list li a` | Full-width row card for hub/index pages |
 | Membership tier | `.tier` / `.tier--feature` | `--tier--feature` is the highlighted/recommended tier (navy gradient bg) |
 | Stat tile | `.stat` | Used inside `.stripe` sections only |
