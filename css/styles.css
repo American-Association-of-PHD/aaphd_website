@@ -579,6 +579,14 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
   background: linear-gradient(180deg, var(--paper) 0%, #f3eee5 100%); }
 .page-hero h1 { max-width: 22ch; }
 .page-hero .lead { max-width: 60ch; }
+/* Profile hero: a page hero with a round portrait beside the title (e.g. the Executive Director).
+   On phones the portrait sits above the title. */
+.profile-hero { display: grid; gap: 1.25rem 2.5rem; align-items: center; grid-template-columns: 1fr; }
+.profile-hero__photo { order: -1; width: 140px; height: 140px; border-radius: 50%; box-shadow: var(--shadow-md); }
+@media (min-width: 720px) {
+  .profile-hero { grid-template-columns: 1fr auto; }
+  .profile-hero__photo { order: 0; width: 220px; height: 220px; }
+}
 
 /* Breadcrumbs */
 .crumbs { font-size: var(--fs-xs); color: var(--slate); letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1rem; }
@@ -739,6 +747,13 @@ section h2 { margin-bottom: 1rem; }
 .footer-grid ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: .5rem; }
 .colophon { margin-top: 2.5rem; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.12);
   display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; font-size: var(--fs-sm); }
+
+/* Pre-launch marker: highlights content that must be updated before the site goes live.
+   Markup: <mark class="needs-update">…</mark>. Find every one with  grep -rn "needs-update" *.html
+   and delete the class (and its TODO comment) once the item is fixed. */
+mark.needs-update { background: #ffe66d; color: var(--ink); font-weight: 600; padding: .15em .45em; border-radius: .3em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+mark.needs-update a { color: var(--navy-700); text-decoration: underline; }
 
 /* Util */
 .lead { font-size: var(--fs-lg); color: var(--slate); }
