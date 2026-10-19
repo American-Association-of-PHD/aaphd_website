@@ -79,7 +79,7 @@ p { margin: 0 0 1em; }
    any position:fixed descendants — that's why the mobile menu was being
    constrained to the header's height (~85px) instead of filling the
    viewport. Disable it on mobile and use a solid background instead. */
-@media (max-width: 1099px) {
+@media (max-width: 1279px) {
   .site-header { backdrop-filter: none; -webkit-backdrop-filter: none; background: var(--paper); }
 }
 .site-header__inner { display: flex; align-items: center; gap: 1rem; min-height: 85px; padding-block: .5rem; }
@@ -125,7 +125,7 @@ p { margin: 0 0 1em; }
   border: 0;
   box-shadow: none;
 }
-@media (min-width: 1100px) {
+@media (min-width: 1280px) {
   .nav-toggle { display: none; }
   .primary-nav { display: block; margin-left: auto; }
   .primary-nav > ul { flex-direction: row; align-items: center; gap: .15rem; }
@@ -169,7 +169,7 @@ p { margin: 0 0 1em; }
 .submenu a[target="_blank"]::after { content: " ↗"; opacity: .55; font-size: .85em; }
 
 /* MOBILE: tap a top-level row to expand its submenu */
-@media (max-width: 1099px) {
+@media (max-width: 1279px) {
   /* Lift the brand logo + hamburger close button ABOVE the fixed menu panel.
      The menu is a child of <header>, so its z-index lives inside the header's
      stacking context — these siblings need z-index too to stay visible. */
@@ -268,7 +268,7 @@ p { margin: 0 0 1em; }
 }
 
 /* DESKTOP: hover / focus reveals dropdown panel */
-@media (min-width: 1100px) {
+@media (min-width: 1280px) {
   .has-dropdown {
     display: inline-flex; align-items: center; position: relative;
   }
@@ -341,7 +341,7 @@ p { margin: 0 0 1em; }
   padding: .5rem .85rem .35rem;
 }
 
-@media (min-width: 1100px) {
+@media (min-width: 1280px) {
   .submenu--mega {
     /* Override default <ul>/<li> -based submenu: this is a <div> with grouped sections */
     display: none;
@@ -371,7 +371,7 @@ p { margin: 0 0 1em; }
   .submenu--mega a:hover { background: var(--mist); color: var(--navy-700); }
 }
 
-@media (max-width: 1099px) {
+@media (max-width: 1279px) {
   /* Mega-menu accordion: same plain-block treatment as regular submenu.
      The defensive force-hide of .submenu / .submenu--mega lives in the
      primary mobile block above. */
@@ -432,7 +432,7 @@ p { margin: 0 0 1em; }
   box-shadow: var(--shadow-sm);
 }
 .bio-card__photo {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   background: var(--mist);
   overflow: hidden;
 }
@@ -440,7 +440,15 @@ p { margin: 0 0 1em; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: 50% 20%;
   display: block;
+}
+/* No photo yet: initials on a navy tile */
+.bio-card__photo--empty {
+  display: grid; place-items: center;
+  background: linear-gradient(135deg, var(--navy-700), var(--navy-500));
+  color: rgba(255,255,255,.88);
+  font-family: var(--font-display); font-size: var(--fs-2xl); letter-spacing: .04em;
 }
 .bio-card__body { padding: 1.1rem 1.25rem 1.35rem; }
 .bio-card__body h3 {
@@ -462,6 +470,33 @@ p { margin: 0 0 1em; }
   margin: 0;
   line-height: 1.4;
 }
+/* City and state sit on their own line under the workplace */
+.bio-card__loc { display: block; }
+/* Credentials sit on their own lighter line under the name so long strings don't crowd it */
+.bio-card__creds {
+  display: block;
+  margin-top: .15rem;
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--slate);
+  letter-spacing: .01em;
+}
+/* e.g. "Non-voting" under a title */
+.bio-card__note {
+  margin: 0 0 .35em;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--slate);
+}
+
+/* (Selectors are doubled-up, .cards.cards--…, so they beat the generic .cards grid rule defined later.)
+   Every group (Officers, Directors, Ex Officio) uses the same compact side-by-side card, three across on desktop. */
+.cards.cards--bio-compact { grid-template-columns: 1fr; }
+@media (min-width: 640px) { .cards.cards--bio-compact { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 960px) { .cards.cards--bio-compact { grid-template-columns: repeat(3, 1fr); } }
+.cards--bio-compact .card { display: grid; grid-template-columns: minmax(112px, 40%) 1fr; }
+.cards--bio-compact .bio-card__photo { aspect-ratio: auto; height: 100%; min-height: 150px; }
+.cards--bio-compact .bio-card__body { padding: 1rem 1.1rem; align-self: center; }
 
 .bio-section { margin-block-end: 3rem; }
 .bio-section:last-child { margin-block-end: 0; }
@@ -582,7 +617,8 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
 /* Profile hero: a page hero with a round portrait beside the title (e.g. the Executive Director).
    On phones the portrait sits above the title. */
 .profile-hero { display: grid; gap: 1.25rem 2.5rem; align-items: center; grid-template-columns: 1fr; }
-.profile-hero__photo { order: -1; width: 140px; height: 140px; border-radius: 50%; box-shadow: var(--shadow-md); }
+.profile-hero__photo { order: -1; width: 140px; height: 140px; border-radius: 50%; box-shadow: var(--shadow-md);
+  object-fit: cover; object-position: 50% 15%; }
 @media (min-width: 720px) {
   .profile-hero { grid-template-columns: 1fr auto; }
   .profile-hero__photo { order: 0; width: 220px; height: 220px; }
@@ -756,6 +792,9 @@ mark.needs-update { background: #ffe66d; color: var(--ink); font-weight: 600; pa
 mark.needs-update a { color: var(--navy-700); text-decoration: underline; }
 
 /* Util */
+/* Hidden on screen but still read by screen readers: keeps the heading outline without a visible heading */
+.visually-hidden { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap; border: 0; }
 .lead { font-size: var(--fs-lg); color: var(--slate); }
 .text-center { text-align: center; }
 .muted { color: var(--slate); }

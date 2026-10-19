@@ -19,7 +19,7 @@
 
   // ---- Dropdown toggles (chevrons + whole-row tap on mobile) ----
   const dropdowns = document.querySelectorAll('.has-dropdown');
-  const isMobile = () => window.matchMedia('(max-width: 1099px)').matches;
+  const isMobile = () => window.matchMedia('(max-width: 1279px)').matches;
 
   const toggleDropdown = (li, e) => {
     const tog = li.querySelector('.dropdown-toggle');
