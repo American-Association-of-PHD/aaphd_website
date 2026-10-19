@@ -20,8 +20,8 @@
   .residency-facts .label { color: var(--slate); font-weight: 500; }
   .residency-facts .value { color: var(--ink); font-weight: 600; text-align: right; }
 
-  /* Comparison table — wide, horizontally scrollable on small screens */
-  .table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1rem 0 0; border: 1px solid rgba(15,42,78,.08); border-radius: var(--radius); background: var(--white); }
+  /* Comparison table — scrolls inside its own frame so the column headings (top) and program names (left) stay frozen */
+  .table-scroll { overflow: auto; max-height: min(75vh, 720px); -webkit-overflow-scrolling: touch; margin: 1rem 0 0; border: 1px solid rgba(15,42,78,.08); border-radius: var(--radius); background: var(--white); }
   .residency-table { width: 100%; min-width: 1100px; border-collapse: collapse; font-size: var(--fs-sm); }
   .residency-table th, .residency-table td { padding: .65rem .85rem; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(15,42,78,.06); color: var(--ink); }
   .residency-table thead th { font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); background: var(--paper); position: sticky; top: 0; z-index: 2; }
