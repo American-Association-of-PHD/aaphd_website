@@ -756,6 +756,27 @@ section h2 { margin-bottom: 1rem; }
 /* Honoree cards: name, then the placement on its own line, then the school */
 .award-place { margin: .1rem 0 .5rem; font-size: var(--fs-sm); font-weight: 700; color: var(--coral-700); }
 .stripe .award-place { color: #f0a988; }
+/* Merit award cards: three across, then two; each shows the current recipient (label, name, credentials) then a link.
+   Doubled selector so it beats the generic .cards auto-fit rule defined above. */
+.cards.cards--award { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 599px) { .cards.cards--award { grid-template-columns: 1fr; } }
+@media (min-width: 900px) { .cards.cards--award { grid-template-columns: repeat(3, 1fr); } }
+.cards--award .card__link { margin-top: 0; }
+/* Three across: share row tracks (title / description / recipient / link) so each row's recipients and links line up */
+@media (min-width: 900px) {
+  .cards.cards--award { row-gap: 0; margin-bottom: -1.25rem; }
+  .cards--award .card { display: grid; grid-row: span 4; grid-template-rows: subgrid; row-gap: 0; margin-bottom: 1.25rem; }
+  .cards--award .card > h3 { grid-row: 1; }
+  .cards--award .card > p { grid-row: 2; }
+  .cards--award .card > .award-recipient { grid-row: 3; align-self: start; margin-top: 0; }
+  .cards--award .card > .card__link { grid-row: 4; align-self: start; }
+}
+.award-recipient { margin: auto 0 1rem; padding-top: 1rem; border-top: 1px solid rgba(15, 42, 78, .12); }
+.award-recipient p { margin: 0; }
+.award-recipient__label { font-size: var(--fs-sm); font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--coral-700); margin-bottom: .35rem !important; }
+.award-recipient__name { font-weight: 700; color: var(--ink); font-size: var(--fs-base); line-height: 1.3; }
+.award-recipient__creds { font-size: var(--fs-sm); color: var(--slate); margin-bottom: .5rem !important; }
+.award-recipient__creds:last-child { margin-bottom: 0 !important; }
 /* Reveal box: a click-to-open panel (native <details>) for long lists, with names flowing into columns */
 .reveal-box { margin-top: 1.5rem; background: var(--white); border: 1px solid rgba(15, 42, 78, .14); border-radius: var(--radius); }
 .reveal-box > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer;
