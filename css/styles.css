@@ -753,6 +753,42 @@ section h2 { margin-bottom: 1rem; }
   padding: .85rem 1rem; background: var(--mist); border-radius: 8px; }
 .tier--feature .tier__eligibility { background: rgba(255,255,255,.08); color: rgba(255,255,255,.85); }
 
+/* Honoree cards: name, then the placement on its own line, then the school */
+.award-place { margin: .1rem 0 .5rem; font-size: var(--fs-sm); font-weight: 700; color: var(--coral-700); }
+.stripe .award-place { color: #f0a988; }
+/* Reveal box: a click-to-open panel (native <details>) for long lists, with names flowing into columns */
+.reveal-box { margin-top: 1.5rem; background: var(--white); border: 1px solid rgba(15, 42, 78, .14); border-radius: var(--radius); }
+.reveal-box > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer;
+  list-style: none; padding: 1rem 1.25rem; font-weight: 700; color: var(--navy-900); }
+.reveal-box > summary::-webkit-details-marker { display: none; }
+.reveal-box > summary::after { content: ""; flex-shrink: 0; width: .6rem; height: .6rem; margin-top: -.25rem;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg);
+  transition: transform var(--dur) var(--ease); }
+.reveal-box[open] > summary::after { margin-top: .25rem; transform: rotate(-135deg); }
+.reveal-box__body { padding: 0 1.25rem 1.25rem; }
+.stripe .reveal-box { background: rgba(255, 255, 255, .06); border-color: rgba(255, 255, 255, .18); }
+.stripe .reveal-box > summary { color: var(--white); }
+.name-columns { list-style: none; margin: 0; padding: 0; columns: 3 15rem; column-gap: 2rem; }
+.name-columns li { break-inside: avoid; padding: .35rem 0; border-bottom: 1px solid rgba(15, 42, 78, .08); }
+.stripe .name-columns li { border-bottom-color: rgba(255, 255, 255, .12); }
+@media (prefers-reduced-motion: reduce) { .reveal-box > summary::after { transition: none; } }
+
+/* Details list: label + text rows (eligibility, requirements, awards...). Stacks on phones. */
+.detail-heading { margin: 2rem 0 .85rem; font-family: var(--font-sans); font-size: var(--fs-sm); font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--slate); }
+.stripe .detail-heading { color: #f0a988; }
+.detail-list { margin: 0 0 1rem; display: grid; gap: 1rem; max-width: 78ch; }
+.detail-list > div { display: grid; gap: .2rem 1.75rem; padding-top: 1rem; border-top: 1px solid rgba(15, 42, 78, .1); }
+.detail-list > div:first-child { padding-top: 0; border-top: 0; }
+@media (min-width: 720px) { .detail-list > div { grid-template-columns: 11rem 1fr; } }
+.detail-list dt { font-weight: 700; color: var(--navy-900); }
+.detail-list dd { margin: 0; color: var(--ink); }
+.stripe .detail-list > div { border-top-color: rgba(255, 255, 255, .14); }
+.stripe .detail-list dt { color: var(--white); }
+.stripe .detail-list dd { color: rgba(255, 255, 255, .88); }
+.bullet-list { margin: .25rem 0 1.5rem; padding-left: 1.25rem; max-width: 62ch; }
+.bullet-list li { margin-bottom: .35rem; }
+
 /* Contact form */
 .contact-form { display: grid; gap: 1.15rem; max-width: 640px; }
 .form-row { display: grid; gap: 1.15rem; grid-template-columns: 1fr; }
