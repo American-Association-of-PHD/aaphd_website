@@ -802,6 +802,15 @@ section h2 { margin-bottom: 1rem; }
 @media (min-width: 860px) { .webinar-detail { grid-template-columns: repeat(2, 1fr); } }
 .webinar-detail .detail-heading { margin: 0 0 .75rem; }
 .webinar-detail p { max-width: 62ch; }
+/* Topic filter chips (EDI Corner): pill buttons that filter article cards; hidden until JS runs. */
+.chips { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1rem 0 .5rem; }
+.chip { font: inherit; font-weight: 600; font-size: var(--fs-sm); padding: .55rem 1.1rem; border-radius: 999px; cursor: pointer;
+  background: var(--white); color: var(--navy-900); border: 1.5px solid rgba(15, 42, 78, .25); transition: background var(--dur) var(--ease), color var(--dur) var(--ease); }
+.chip:hover { background: var(--mist); }
+.chip[aria-pressed="true"] { background: var(--navy-900); color: var(--white); border-color: var(--navy-900); }
+.edi-status { min-height: 1.5em; margin: .25rem 0 0; font-size: var(--fs-sm); color: var(--slate); }
+.edi-topic { align-self: flex-start; margin-bottom: .5rem; font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--coral-700); }
+[hidden] { display: none !important; }
 /* Reveal box: a click-to-open panel (native <details>) for long lists, with names flowing into columns */
 .reveal-box { margin-top: 1.5rem; background: var(--white); border: 1px solid rgba(15, 42, 78, .14); border-radius: var(--radius); }
 .reveal-box > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer;

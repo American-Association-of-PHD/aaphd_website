@@ -4,11 +4,11 @@
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0f2a4e">
 <title>EDI Corner — AAPHD</title>
 <meta name="description" content="The EDI Corner — equity, diversity, and inclusion content curated by AAPHD's EDI Committee.">
-<link rel="icon" href="assets/favicon-32.png?v=202610281531" type="image/png">
-<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=202610281531">
+<link rel="icon" href="assets/favicon-32.png?v=202610281543" type="image/png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=202610281543">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
-<link rel="stylesheet" href="css/styles.css?v=202610281531">
+<link rel="stylesheet" href="css/styles.css?v=202610281543">
 </head>
 <body>
 <a class="skip" href="#main">Skip to main content</a>
@@ -16,7 +16,7 @@
 <header class="site-header" data-nav data-nav-open="false">
   <div class="container site-header__inner">
     <a class="brand" href="index.html" aria-label="AAPHD home">
-      <img src="assets/logo.png?v=202610281531" alt="AAPHD" width="200" height="76">
+      <img src="assets/logo.png?v=202610281543" alt="AAPHD" width="200" height="76">
     </a>
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle aria-label="Open menu">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
@@ -161,70 +161,75 @@
   </div>
 </section>
 
-<section class="section--tint">
+<section class="section--tint" id="edi-filter" hidden>
   <div class="container">
-    <span class="section-tag">2026</span>
-    <h2>This year's articles</h2>
+    <span class="section-tag">Browse</span>
+    <h2>Find articles by topic</h2>
+    <div class="chips" role="group" aria-label="Filter articles by topic">
+        <button type="button" class="chip" data-filter="all" aria-pressed="true">All topics</button>
+        <button type="button" class="chip" data-filter="heritage" aria-pressed="false">Heritage months</button>
+        <button type="button" class="chip" data-filter="access" aria-pressed="false">Access &amp; communities</button>
+        <button type="button" class="chip" data-filter="workforce" aria-pressed="false">Workforce &amp; education</button>
+        <button type="button" class="chip" data-filter="practice" aria-pressed="false">Inclusive practice</button>
+    </div>
+    <p class="edi-status" role="status" aria-live="polite"></p>
+  </div>
+</section>
+
+<section data-year>
+  <div class="container">
+    <span class="section-tag">Archive</span>
+    <h2>2026</h2>
     <div class="cards">
-      <a class="card" href="learn-edi-april-2026.html"><h3>April 2026</h3><p>Carceral Systems and Oral Health Access</p></a>
-      <a class="card" href="learn-edi-march-2026.html"><h3>March 2026</h3><p>Protecting Oral Health Access for Undocumented Immigrants</p></a>
-      <a class="card" href="learn-edi-february-2026.html"><h3>February 2026</h3><p>Black History Month — AAPHD EDI Committee 2026 Recommended Reading and Listening</p></a>
+      <a class="card" href="learn-edi-april-2026.html" data-topic="access"><span class="edi-topic">Access &amp; communities</span><h3>Carceral Systems and Oral Health Access</h3><p>April 2026</p></a>
+      <a class="card" href="learn-edi-march-2026.html" data-topic="access"><span class="edi-topic">Access &amp; communities</span><h3>Protecting Oral Health Access for Undocumented Immigrants</h3><p>March 2026</p></a>
+      <a class="card" href="learn-edi-february-2026.html" data-topic="heritage"><span class="edi-topic">Heritage months</span><h3>Black History Month — AAPHD EDI Committee 2026 Recommended Reading and Listening</h3><p>February 2026</p></a>
     </div>
   </div>
 </section>
 
-<section class="stripe">
+<section class="section--tint" data-year>
   <div class="container">
-    <span class="section-tag" style="color:#f0a988;">Heritage</span>
-    <h2>Heritage months and cultural observance</h2>
+    <span class="section-tag">Archive</span>
+    <h2>2025</h2>
     <div class="cards">
-      <a class="card" href="learn-edi-november-2024.html"><h3>Native American Heritage Month</h3><p>November 2024</p></a>
-      <a class="card" href="learn-edi-september-2024.html"><h3>Hispanic/Latinx Heritage Month</h3><p>September 2024</p></a>
-      <a class="card" href="learn-edi-july-2024.html"><h3>Disability Pride Month</h3><p>July 2024</p></a>
-      <a class="card" href="learn-edi-february-2024.html"><h3>Black History Month</h3><p>February 2024</p></a>
+      <a class="card" href="learn-edi-december-2025.html" data-topic="workforce"><span class="edi-topic">Workforce &amp; education</span><h3>Debt, Diversity, and Dentistry</h3><p>December 2025 &middot; How federal loan caps could reshape the workforce</p></a>
+      <a class="card" href="learn-edi-october-2025.html" data-topic="access"><span class="edi-topic">Access &amp; communities</span><h3>LGBTQIA+ Voices in the Dental Workforce</h3><p>October 2025 &middot; UNC Pride Clinic story</p></a>
+      <a class="card" href="learn-edi-june-2025.html" data-topic="workforce"><span class="edi-topic">Workforce &amp; education</span><h3>Impacting Workforce Diversity: The Social Mission Alliance</h3><p>June 2025</p></a>
+      <a class="card" href="learn-edi-april-2025.html" data-topic="practice"><span class="edi-topic">Inclusive practice</span><h3>Equity, Diversity, Inclusion and Belonging within AAPHD</h3><p>April 2025 &middot; Climate Survey Results</p></a>
+      <a class="card" href="learn-edi-february-2025.html" data-topic="workforce"><span class="edi-topic">Workforce &amp; education</span><h3>Racial/Ethnic Composition of Dental Students and Dentists</h3><p>February 2025 &middot; Challenges, trends, and opportunities</p></a>
     </div>
   </div>
 </section>
 
-<section>
+<section data-year>
   <div class="container">
-    <span class="section-tag">Access</span>
-    <h2>Access and communities we serve</h2>
+    <span class="section-tag">Archive</span>
+    <h2>2024</h2>
     <div class="cards">
-      <a class="card" href="learn-edi-october-2025.html"><h3>LGBTQIA+ Voices in the Dental Workforce</h3><p>October 2025 · UNC Pride Clinic story</p></a>
-      <a class="card" href="learn-edi-june-2024.html"><h3>Culturally Responsive Oral Health Care for LGBTQIA+ People</h3><p>June 2024</p></a>
-      <a class="card" href="learn-edi-august-2024.html"><h3>Community Engagement in Dental Public Health</h3><p>August 2024</p></a>
-      <a class="card" href="learn-edi-january-2024.html"><h3>Experiences with Racism in Healthcare Settings</h3><p>January 2024</p></a>
+      <a class="card" href="learn-edi-november-2024.html" data-topic="heritage"><span class="edi-topic">Heritage months</span><h3>Native American Heritage Month</h3><p>November 2024</p></a>
+      <a class="card" href="learn-edi-october-2024.html" data-topic="practice"><span class="edi-topic">Inclusive practice</span><h3>Microaggressions and their impact on health and workforce</h3><p>October 2024</p></a>
+      <a class="card" href="learn-edi-september-2024.html" data-topic="heritage"><span class="edi-topic">Heritage months</span><h3>Hispanic/Latinx Heritage Month</h3><p>September 2024</p></a>
+      <a class="card" href="learn-edi-august-2024.html" data-topic="access"><span class="edi-topic">Access &amp; communities</span><h3>Community Engagement in Dental Public Health</h3><p>August 2024</p></a>
+      <a class="card" href="learn-edi-july-2024.html" data-topic="heritage"><span class="edi-topic">Heritage months</span><h3>Disability Pride Month</h3><p>July 2024</p></a>
+      <a class="card" href="learn-edi-june-2024.html" data-topic="access"><span class="edi-topic">Access &amp; communities</span><h3>Culturally Responsive Oral Health Care for LGBTQIA+ People</h3><p>June 2024</p></a>
+      <a class="card" href="learn-edi-may-2024.html" data-topic="workforce"><span class="edi-topic">Workforce &amp; education</span><h3>Data Disaggregation</h3><p>May 2024</p></a>
+      <a class="card" href="learn-edi-april-2024.html" data-topic="workforce"><span class="edi-topic">Workforce &amp; education</span><h3>Creating Inclusive and Accessible Presentations and Publications</h3><p>April 2024</p></a>
+      <a class="card" href="learn-edi-march-2024.html" data-topic="practice"><span class="edi-topic">Inclusive practice</span><h3>Advancing Equity by Incorporating Intersectionality</h3><p>March 2024</p></a>
+      <a class="card" href="learn-edi-february-2024.html" data-topic="heritage"><span class="edi-topic">Heritage months</span><h3>Black History Month</h3><p>February 2024</p></a>
+      <a class="card" href="learn-edi-january-2024.html" data-topic="access"><span class="edi-topic">Access &amp; communities</span><h3>Experiences with Racism in Healthcare Settings</h3><p>January 2024</p></a>
     </div>
   </div>
 </section>
 
-<section class="stripe">
+<section class="section--tint" data-year>
   <div class="container">
-    <span class="section-tag" style="color:#f0a988;">Workforce</span>
-    <h2>Workforce, education, and data</h2>
+    <span class="section-tag">Archive</span>
+    <h2>2023</h2>
     <div class="cards">
-      <a class="card" href="learn-edi-december-2025.html"><h3>Debt, Diversity, and Dentistry</h3><p>December 2025 · How federal loan caps could reshape the workforce</p></a>
-      <a class="card" href="learn-edi-june-2025.html"><h3>Impacting Workforce Diversity: The Social Mission Alliance</h3><p>June 2025</p></a>
-      <a class="card" href="learn-edi-february-2025.html"><h3>Racial/Ethnic Composition of Dental Students and Dentists</h3><p>February 2025 · Challenges, trends, and opportunities</p></a>
-      <a class="card" href="learn-edi-april-2024.html"><h3>Creating Inclusive and Accessible Presentations and Publications</h3><p>April 2024</p></a>
-      <a class="card" href="learn-edi-may-2024.html"><h3>Data Disaggregation</h3><p>May 2024</p></a>
+      <a class="card" href="learn-edi-december-2023.html" data-topic="practice"><span class="edi-topic">Inclusive practice</span><h3>Disrupting Unconscious Bias</h3><p>December 2023</p></a>
+      <a class="card" href="learn-edi-november-2023.html" data-topic="practice"><span class="edi-topic">Inclusive practice</span><h3>Inclusive Communication</h3><p>November 2023</p></a>
     </div>
-  </div>
-</section>
-
-<section>
-  <div class="container">
-    <span class="section-tag">Practice</span>
-    <h2>Inclusive practice and bias</h2>
-    <div class="cards">
-      <a class="card" href="learn-edi-october-2024.html"><h3>Microaggressions and their impact on health and workforce</h3><p>October 2024</p></a>
-      <a class="card" href="learn-edi-march-2024.html"><h3>Advancing Equity by Incorporating Intersectionality</h3><p>March 2024</p></a>
-      <a class="card" href="learn-edi-december-2023.html"><h3>Disrupting Unconscious Bias</h3><p>December 2023</p></a>
-      <a class="card" href="learn-edi-november-2023.html"><h3>Inclusive Communication</h3><p>November 2023</p></a>
-      <a class="card" href="learn-edi-april-2025.html"><h3>Equity, Diversity, Inclusion and Belonging within AAPHD</h3><p>April 2025 · Climate Survey Results</p></a>
-    </div>
-    <p style="margin-top: 2rem;"><a href="lead-edi-committee.html" class="btn btn--primary">About the EDI Committee</a></p>
   </div>
 </section>
 
@@ -240,6 +245,34 @@
   <div class="colophon"><span>&copy; 1937–2026 American Association of Public Health Dentistry</span><span><a href="#">Privacy</a> · <a href="#">Terms</a> · <a href="#">Accessibility</a></span></div>
 </div></footer>
 
-<script src="js/main.js?v=202610281531" defer></script>
+<script>
+(function () {
+  var bar = document.getElementById('edi-filter');
+  if (!bar) return;
+  bar.hidden = false;
+  var chips = bar.querySelectorAll('.chip');
+  var cards = document.querySelectorAll('[data-topic]');
+  var years = document.querySelectorAll('section[data-year]');
+  var status = bar.querySelector('.edi-status');
+  function apply(topic) {
+    var shown = 0;
+    cards.forEach(function (c) {
+      var on = topic === 'all' || c.getAttribute('data-topic') === topic;
+      c.hidden = !on;
+      if (on) shown++;
+    });
+    var idx = 0;
+    years.forEach(function (y) {
+      var any = y.querySelector('[data-topic]:not([hidden])');
+      y.hidden = !any;
+      if (any) { y.classList.toggle('section--tint', idx % 2 === 1); idx++; }
+    });
+    chips.forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-filter') === topic ? 'true' : 'false'); });
+    status.textContent = topic === 'all' ? '' : 'Showing ' + shown + (shown === 1 ? ' article' : ' articles') + '.';
+  }
+  chips.forEach(function (b) { b.addEventListener('click', function () { apply(b.getAttribute('data-filter')); }); });
+})();
+</script>
+<script src="js/main.js?v=202610281543" defer></script>
 </body>
 </html>
