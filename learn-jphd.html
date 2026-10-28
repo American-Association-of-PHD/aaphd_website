@@ -10,30 +10,41 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
 <link rel="stylesheet" href="css/styles.css?v=202610281543">
 <style>
-  .jphd-hero { display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: start; }
-  @media (min-width: 720px) { .jphd-hero { grid-template-columns: minmax(220px, 280px) 1fr; gap: 2.5rem; } }
+  .jphd-hero { display: grid; gap: 2rem; grid-template-columns: 1fr; align-items: center; }
+  @media (min-width: 900px) { .jphd-hero { grid-template-columns: minmax(220px, 280px) 1fr; gap: 3rem; } }
 
   .jphd-masthead {
     aspect-ratio: 3 / 4; padding: 1.5rem; border-radius: var(--radius); background: linear-gradient(160deg, var(--navy-700), var(--navy-500));
-    color: #fff; display: flex; flex-direction: column; justify-content: space-between;
+    color: #fff; display: flex; flex-direction: column; justify-content: space-between; max-width: 280px;
     box-shadow: var(--shadow-md);
   }
   .jphd-masthead__label { font-family: var(--font-display); font-style: italic; font-size: var(--fs-base); opacity: .9; }
   .jphd-masthead__title { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 700; line-height: 1.05; letter-spacing: -.01em; }
   .jphd-masthead__pub { font-size: var(--fs-xs); opacity: .75; text-transform: uppercase; letter-spacing: .1em; }
 
-  .jphd-tagline { font-size: var(--fs-lg); color: var(--slate); margin: 0 0 1.25rem; max-width: 55ch; }
-  .jphd-links { list-style: none; padding: 0; margin: 0 0 1.5rem; display: grid; gap: .5rem; }
-  .jphd-links li { padding: .35rem 0; border-bottom: 1px solid rgba(15,42,78,.08); }
-  .jphd-links li:last-child { border-bottom: 0; }
-  .jphd-links a { font-weight: 600; color: var(--navy-700); }
-  .jphd-links a::after { content: " \2192"; opacity: .6; transition: transform var(--dur) var(--ease); display: inline-block; }
-  .jphd-links a:hover::after { transform: translateX(3px); opacity: 1; }
+  .jphd-tagline { font-size: var(--fs-lg); color: var(--slate); margin: 0 0 1.5rem; max-width: 55ch; }
 
-  .jphd-metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 1rem; padding: 1rem 1.25rem; background: var(--mist); border-radius: var(--radius); }
-  .jphd-metrics > div { display: flex; flex-direction: column; }
-  .jphd-metric__num { font-family: var(--font-display); font-size: var(--fs-xl); color: var(--navy-700); line-height: 1; }
-  .jphd-metric__label { font-size: var(--fs-xs); color: var(--slate); text-transform: uppercase; letter-spacing: .1em; margin-top: .25rem; }
+  /* action tiles: the four things people come here to do */
+  .jphd-tiles { display: grid; gap: 1rem; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .jphd-tiles { grid-template-columns: repeat(2, 1fr); } }
+  .jphd-tile { display: flex; flex-direction: column; gap: .35rem; padding: 1.25rem 1.4rem; border-radius: var(--radius); background: var(--white);
+    border: 1px solid rgba(15,42,78,.1); box-shadow: var(--shadow-sm); color: var(--ink); text-decoration: none;
+    transition: transform var(--dur) var(--ease), box-shadow var(--dur) var(--ease); }
+  .jphd-tile:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+  .jphd-tile__title { font-weight: 700; font-size: var(--fs-lg); color: var(--navy-900); }
+  .jphd-tile__title::after { content: " \2192"; color: var(--coral-700); transition: margin var(--dur) var(--ease); }
+  .jphd-tile:hover .jphd-tile__title::after { margin-left: 4px; }
+  .jphd-tile__desc { font-size: var(--fs-sm); color: var(--slate); }
+  .jphd-tile--primary { background: linear-gradient(155deg, var(--navy-900), var(--navy-500)); border-color: transparent; }
+  .jphd-tile--primary .jphd-tile__title { color: #fff; }
+  .jphd-tile--primary .jphd-tile__title::after { color: var(--gold); }
+  .jphd-tile--primary .jphd-tile__desc { color: rgba(255,255,255,.82); }
+
+  .jphd-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 0; margin-top: 2.5rem; border-top: 1px solid rgba(15,42,78,.12); border-bottom: 1px solid rgba(15,42,78,.12); }
+  .jphd-facts > div { display: flex; flex-direction: column; padding: 1.1rem 1.25rem; border-left: 1px solid rgba(15,42,78,.12); }
+  .jphd-facts > div:first-child { border-left: 0; padding-left: 0; }
+  .jphd-metric__num { font-family: var(--font-display); font-size: var(--fs-xl); color: var(--navy-700); line-height: 1.1; }
+  .jphd-metric__label { font-size: var(--fs-xs); color: var(--slate); text-transform: uppercase; letter-spacing: .1em; margin-top: .3rem; }
 
   .jphd-editor { display: grid; gap: 1.5rem; grid-template-columns: 1fr; align-items: start; margin-top: 1rem; }
   @media (min-width: 560px) { .jphd-editor { grid-template-columns: 200px 1fr; } }
@@ -187,20 +198,21 @@
         <span class="jphd-masthead__title">Public Health<br>Dentistry</span>
         <span class="jphd-masthead__pub">Published by Wiley on behalf of AAPHD</span>
       </div>
-      <div class="jphd-actions">
+      <div>
         <p class="jphd-tagline">Peer-reviewed research on population oral health, dental public health practice, and health policy.</p>
-        <ul class="jphd-links">
-          <li><a href="https://onlinelibrary.wiley.com/journal/17527325" target="_blank" rel="noopener">Read the current issue</a></li>
-          <li><a href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/forauthors.html" target="_blank" rel="noopener">Instructions for authors</a></li>
-          <li><a href="https://onlinelibrary.wiley.com/journal/17527325" target="_blank" rel="noopener">Submit a manuscript</a></li>
-          <li><a href="https://aaphd.memberclicks.net/" target="_blank" rel="noopener">Member access &mdash; log in via the portal</a></li>
-        </ul>
-        <div class="jphd-metrics">
-          <div><span class="jphd-metric__num">1.8</span><span class="jphd-metric__label">Impact Factor</span></div>
-          <div><span class="jphd-metric__num">Wiley</span><span class="jphd-metric__label">Publisher</span></div>
-          <div><span class="jphd-metric__num">Open access options</span><span class="jphd-metric__label">Available</span></div>
+        <div class="jphd-tiles">
+          <a class="jphd-tile jphd-tile--primary" href="https://aaphd.memberclicks.net/index.php?option=com_journal&amp;view=wiley&amp;journalid=1" target="_blank" rel="noopener"><span class="jphd-tile__title">Member access</span><span class="jphd-tile__desc">AAPHD members: read the journal through the member portal.</span></a>
+          <a class="jphd-tile" href="https://onlinelibrary.wiley.com/toc/17527325/current" target="_blank" rel="noopener"><span class="jphd-tile__title">Current issue</span><span class="jphd-tile__desc">Browse the latest issue on Wiley.</span></a>
+          <a class="jphd-tile" href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/forauthors.html" target="_blank" rel="noopener"><span class="jphd-tile__title">Instructions for authors</span><span class="jphd-tile__desc">Article types, formatting, and submission guidelines.</span></a>
+          <a class="jphd-tile" href="http://mc.manuscriptcentral.com/jphd" target="_blank" rel="noopener"><span class="jphd-tile__title">Submit a manuscript</span><span class="jphd-tile__desc">Go to the journal&rsquo;s manuscript submission system.</span></a>
         </div>
       </div>
+    </div>
+    <div class="jphd-facts">
+      <div><span class="jphd-metric__num">1.8</span><span class="jphd-metric__label">Impact factor</span></div>
+      <div><span class="jphd-metric__num">Wiley</span><span class="jphd-metric__label">Publisher</span></div>
+      <div><span class="jphd-metric__num">1752-7325</span><span class="jphd-metric__label">Online ISSN</span></div>
+      <div><span class="jphd-metric__num"><a href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/productinformation.html" target="_blank" rel="noopener" style="color: inherit;">Details</a></span><span class="jphd-metric__label">More about the journal</span></div>
     </div>
   </div>
 </section>
@@ -224,20 +236,26 @@
     <h2>About the journal</h2>
     <p class="section-lede">The Journal of Public Health Dentistry is devoted to the advancement of public health dentistry through the exploration of related research, practice, and policy developments. We publish original research, methods articles, and review articles that support the growth and practical application of the dental public health knowledge base. We are an official publication of the American Association of Public Health Dentistry.</p>
     <p style="max-width: 60ch; margin-top: 1rem; color: rgba(255,255,255,.85);">AAPHD members receive complimentary print and digital access as part of their membership.</p>
-    <p style="margin-top: 1rem;"><a href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/productinformation.html" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline;">More about the journal &rsaquo;</a></p>
+    <dl class="detail-list" style="margin-top: 1.5rem;">
+      <div><dt>Publisher</dt><dd>Wiley, on behalf of the American Association of Public Health Dentistry</dd></div>
+      <div><dt>ISSN</dt><dd>0022-4006 (print) &middot; 1752-7325 (online)</dd></div>
+      <div><dt>Content</dt><dd>Original research, methods articles, and review articles on dental public health research, practice, and policy</dd></div>
+      <div><dt>Member access</dt><dd>Complimentary print and digital access with AAPHD membership &mdash; <a href="https://aaphd.memberclicks.net/index.php?option=com_journal&amp;view=wiley&amp;journalid=1" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline;">read the journal through the member portal</a></dd></div>
+    </dl>
+    <p style="margin-top: 1rem;"><a href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/productinformation.html" target="_blank" rel="noopener" style="color: #fff; text-decoration: underline;">More about the journal on Wiley &rsaquo;</a></p>
   </div>
 </section>
 
 <section>
   <div class="container">
-    <!-- TODO before launch: the JPHD Editor is now Tammy D. Duangthip, DDS, MSc, PhD (Ohio State University, Columbus, OH). Update this profile (name, photo, bio), then remove the needs-update highlight. -->
-    <span class="section-tag">Editor-in-Chief</span>
+    <span class="section-tag">Editor</span>
     <div class="jphd-editor">
-      <img src="assets/board/robert-weyant.png" alt="Robert Weyant" width="200" height="200" loading="lazy">
+      <img src="assets/board/tammy-duangthip.jpg" alt="Tammy D. Duangthip" width="400" height="600" loading="lazy" style="object-position: top;">
       <div>
-        <h3 style="margin: 0 0 .25em;"><mark class="needs-update">Robert Weyant, DMD, DrPH &mdash; update before launch</mark></h3>
-        <p style="color: var(--slate); margin: 0 0 .75em;">University of Pittsburgh School of Dental Medicine &middot; Pittsburgh, PA</p>
-        <p style="margin: 0;">Dr. Weyant serves as Editor-in-Chief of the Journal of Public Health Dentistry, guiding the journal&rsquo;s editorial direction and peer-review standards on behalf of AAPHD.</p>
+        <h3 style="margin: 0 0 .25em;">Tammy D. Duangthip, DDS, MSc, PhD</h3>
+        <p style="color: var(--slate); font-weight: 600; margin: 0 0 .25em;">JPHD Editor</p>
+        <p style="color: var(--slate); margin: 0 0 .75em;">The Ohio State University College of Dentistry &middot; Columbus, OH</p>
+        <p style="margin: 0;">Dr. Duangthip serves as Editor of the Journal of Public Health Dentistry, guiding the journal&rsquo;s editorial direction and peer-review standards on behalf of AAPHD.</p>
       </div>
     </div>
   </div>
@@ -250,13 +268,15 @@
     <div class="cards">
       <article class="card">
         <h3>For readers</h3>
-        <p>Browse current and past issues, search articles, and set up alerts for new content in your area.</p>
-        <a class="card__link" href="https://onlinelibrary.wiley.com/journal/17527325" target="_blank" rel="noopener">Visit JPHD on Wiley</a>
+        <p>Browse current and past issues, search articles, and set up alerts for new content in your area. AAPHD members can read the journal through the member portal.</p>
+        <a class="card__link" href="https://onlinelibrary.wiley.com/toc/17527325/current" target="_blank" rel="noopener">Read the current issue</a>
+        <a class="card__link" href="https://aaphd.memberclicks.net/index.php?option=com_journal&amp;view=wiley&amp;journalid=1" target="_blank" rel="noopener">Member access</a>
       </article>
       <article class="card">
         <h3>For authors</h3>
-        <p>Submission guidelines, article types, formatting standards, and manuscript submission portal.</p>
-        <a class="card__link" href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/forauthors.html" target="_blank" rel="noopener">Author guidelines</a>
+        <p>Submission guidelines, article types, formatting standards, and the manuscript submission portal.</p>
+        <a class="card__link" href="https://onlinelibrary.wiley.com/page/journal/17527325/homepage/forauthors.html" target="_blank" rel="noopener">Instructions for authors</a>
+        <a class="card__link" href="http://mc.manuscriptcentral.com/jphd" target="_blank" rel="noopener">Submit a manuscript</a>
       </article>
       <article class="card">
         <h3>For reviewers</h3>
@@ -276,6 +296,7 @@
       </div>
       <div style="text-align:right;">
         <a href="join-renew.html" class="btn btn--primary">Join or renew</a>
+        <a href="https://aaphd.memberclicks.net/index.php?option=com_journal&amp;view=wiley&amp;journalid=1" target="_blank" rel="noopener" class="btn btn--ghost">Member access</a>
       </div>
     </div>
   </div>
