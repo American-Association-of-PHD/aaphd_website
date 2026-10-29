@@ -665,6 +665,8 @@ section h2 { margin-bottom: 1rem; }
 .card__link:hover::after { transform: translateX(4px); }
 /* When a card has more than one link, make each full-width so the trailing
    arrows line up on the right edge instead of ragged after variable-length text. */
+/* Stacked links: the first sticks to the card bottom (auto margin), later ones follow at one fixed gap so spacing is identical in every card. */
+.card__link + .card__link { margin-top: .6rem; }
 .card:has(.card__link + .card__link) .card__link { display: flex; }
 .card:has(.card__link + .card__link) .card__link::after { margin-left: auto; }
 
@@ -811,6 +813,13 @@ section h2 { margin-bottom: 1rem; }
 .edi-status { min-height: 1.5em; margin: .25rem 0 0; font-size: var(--fs-sm); color: var(--slate); }
 .edi-topic { align-self: flex-start; margin-bottom: .5rem; font-size: var(--fs-xs); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--coral-700); }
 [hidden] { display: none !important; }
+/* Long-form legal text (Privacy, Terms) */
+.policy { max-width: 78ch; }
+.policy h2 { font-size: var(--fs-xl); margin: 2.25rem 0 .75rem; }
+.policy h3 { font-size: var(--fs-lg); margin: 1.5rem 0 .5rem; }
+.policy p, .policy li { margin-bottom: .85rem; }
+.policy ul, .policy ol { padding-left: 1.4rem; margin: 0 0 1rem; }
+.policy a { color: var(--navy-700); text-decoration: underline; }
 /* Reveal box: a click-to-open panel (native <details>) for long lists, with names flowing into columns */
 .reveal-box { margin-top: 1.5rem; background: var(--white); border: 1px solid rgba(15, 42, 78, .14); border-radius: var(--radius); }
 .reveal-box > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer;
