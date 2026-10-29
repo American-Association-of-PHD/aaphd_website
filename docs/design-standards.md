@@ -156,7 +156,8 @@ Pages live in a folder named for their top menu section, so the address shows wh
 
 | Menu | Landing page | Pages inside |
 |---|---|---|
-| About | `/about` | `about/us`, `about/board`, `about/merit-awards`, ... |
+| About | `/about` | `about/about-us`, `about/board`, `about/executive-director`, ... |
+| Awards | `/awards` | `awards/merit-awards`, `awards/student-awards`, ... |
 | DPH Education | `/dph-education` | `dph-education/curriculum`, ... |
 | Membership | `/membership` | `membership/join-renew`, ... |
 | Events | `/events` | `events/nohc`, `events/webinars`, ... |
