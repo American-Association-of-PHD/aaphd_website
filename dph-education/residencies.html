@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="theme-color" content="#0f2a4e">
+<title>Dental Public Health Residencies — AAPHD</title>
+<meta name="description" content="Accredited DPH residency programs across the United States and Canada — application deadlines and program details.">
+<link rel="icon" href="../assets/favicon-32.png?v=202610291138" type="image/png">
+<link rel="apple-touch-icon" href="../assets/apple-touch-icon.png?v=202610291138">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap">
+<link rel="stylesheet" href="../css/styles.css?v=202610291138">
+<style>
+  /* Key facts list inside each residency card.
+     margin-top: auto pushes the list to the bottom of the card in the existing
+     flex-column .card layout, so Length and MPH lines align across all cards
+     regardless of how tall the program title is. */
+  .residency-facts { list-style: none; padding: .65rem 0 0; margin: auto 0 0; font-size: var(--fs-sm); }
+  .residency-facts li { padding: .25rem 0; border-top: 1px solid rgba(15,42,78,.06); display: flex; justify-content: space-between; gap: .75rem; }
+  .residency-facts li:first-child { border-top: 0; }
+  .residency-facts .label { color: var(--slate); font-weight: 500; }
+  .residency-facts .value { color: var(--ink); font-weight: 600; text-align: right; }
+
+  /* Comparison table — scrolls inside its own frame so the column headings (top) and program names (left) stay frozen */
+  .table-scroll { overflow: auto; max-height: min(75vh, 720px); -webkit-overflow-scrolling: touch; margin: 1rem 0 0; border: 1px solid rgba(15,42,78,.08); border-radius: var(--radius); background: var(--white); }
+  .residency-table { width: 100%; min-width: 1100px; border-collapse: collapse; font-size: var(--fs-sm); }
+  .residency-table th, .residency-table td { padding: .65rem .85rem; text-align: left; vertical-align: top; border-bottom: 1px solid rgba(15,42,78,.06); color: var(--ink); }
+  .residency-table thead th { font-size: var(--fs-xs); font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--slate); background: var(--paper); position: sticky; top: 0; z-index: 2; }
+  .residency-table tbody th { font-weight: 700; color: var(--navy-700); background: var(--paper); position: sticky; left: 0; z-index: 1; min-width: 220px; }
+  .residency-table thead th:first-child { z-index: 3; left: 0; min-width: 220px; }
+  .residency-table .yes { color: var(--navy-700); }
+  .residency-table .no { color: var(--slate); }
+  .residency-table .empty { color: var(--slate); font-style: italic; }
+  .last-updated { font-size: var(--fs-sm); color: var(--slate); font-style: italic; margin-top: .25rem; }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+<div class="utility-bar"><div class="container"><span></span><span><a class="utility-bar__login" href="https://aaphd.memberclicks.net/" target="_blank" rel="noopener">Member Login</a> · <a href="https://aaphd.mcjobboard.net/jobs" target="_blank" rel="noopener">Job Board</a> · <a href="../contact.html">Contact</a></span></div></div>
+<header class="site-header" data-nav data-nav-open="false">
+  <div class="container site-header__inner">
+    <a class="brand" href="../index.html" aria-label="AAPHD home">
+      <img src="../assets/logo.png?v=202610291138" alt="AAPHD" width="200" height="76">
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-nav-toggle aria-label="Open menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </button>
+    <nav class="primary-nav" id="primary-nav" aria-label="Primary">
+      <ul>
+        <li class="has-dropdown" data-open="false">
+          <a href="../about.html">About</a>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-about" aria-label="Toggle About menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
+          <ul id="submenu-about" class="submenu" role="menu">
+            <li role="none"><a role="menuitem" href="../about/us.html">About Us</a></li>
+            <li role="none"><a role="menuitem" href="../about/board.html">Board of Directors</a></li>
+            <li role="none"><a role="menuitem" href="../about/executive-director.html">Executive Director</a></li>
+            <li role="none"><a role="menuitem" href="../about/past-presidents.html">Past Presidents</a></li>
+            <li role="none"><a role="menuitem" href="../about/merit-awards.html">Merit Awards</a></li>
+            <li role="none"><a role="menuitem" href="../about/student-awards.html">Student Awards</a></li>
+            <li role="none"><a role="menuitem" href="../contact.html">Contact</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown" data-open="false">
+          <a href="../dph-education.html" class="is-active">DPH Education</a>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-dph" aria-label="Toggle DPH Education menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
+          <ul id="submenu-dph" class="submenu" role="menu">
+            <li role="none"><a role="menuitem" href="curriculum.html">Predoctoral DPH Curriculum</a></li>
+            <li role="none"><a role="menuitem" href="residencies.html">Residencies</a></li>
+            <li role="none"><a role="menuitem" href="code-of-ethics.html">Code of Ethics</a></li>
+            <li role="none"><a role="menuitem" href="https://www.abdph.org/" target="_blank" rel="noopener">ABDPH</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown" data-open="false">
+          <a href="../membership.html">Membership</a>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-join" aria-label="Toggle Membership menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
+          <ul id="submenu-join" class="submenu" role="menu">
+            <li role="none"><a role="menuitem" href="../membership.html">Membership Categories</a></li>
+            <li role="none"><a role="menuitem" href="../membership/join-renew.html">Join or Renew</a></li>
+            <li role="none"><a role="menuitem" href="../membership/institutional.html">Institutional Membership</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown" data-open="false">
+          <a href="../events.html">Events</a>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-attend" aria-label="Toggle Events menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
+          <ul id="submenu-attend" class="submenu" role="menu">
+            <li role="none"><a role="menuitem" href="../events/nohc.html">NOHC</a></li>
+            <li role="none"><a role="menuitem" href="../events/webinars.html">Webinars</a></li>
+            <li role="none"><a role="menuitem" href="../events/student-symposium.html">Student Symposium</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown" data-open="false">
+          <a href="../resources.html">Resources</a>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-learn" aria-label="Toggle Resources menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
+          <ul id="submenu-learn" class="submenu" role="menu">
+            <li role="none"><a role="menuitem" href="../resources/jphd.html">Journal of Public Health Dentistry</a></li>
+            <li role="none"><a role="menuitem" href="../resources/webinars.html">Webinar Recordings</a></li>
+            <li role="none"><a role="menuitem" href="../resources/edi-corner.html">EDI Corner</a></li>
+            <li role="none"><a role="menuitem" href="../resources/health-equity-glossary.html">Health Equity Glossary</a></li>
+            <li role="none"><a role="menuitem" href="../resources/policies-publications.html">Policy Statements &amp; Publications</a></li>
+          </ul>
+        </li>
+        <li class="has-dropdown" data-open="false">
+          <a href="../get-involved.html">Get Involved</a>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-getinvolved" aria-label="Toggle Get Involved menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
+          <div id="submenu-getinvolved" class="submenu submenu--mega">
+            <div class="submenu__group">
+              <span class="submenu__heading">Volunteer Leadership</span>
+              <ul>
+                <li><a href="../get-involved/councils.html">Councils</a></li>
+                <li><a href="../get-involved/standing-committees.html">Standing Committees</a></li>
+                <li><a href="../get-involved/trainer-speaker.html">Trainer &amp; Speaker Network</a></li>
+              </ul>
+            </div>
+            <div class="submenu__group">
+              <span class="submenu__heading">Student Chapters</span>
+              <ul>
+                <li><a href="../get-involved/starting-chapter.html">Starting a Chapter</a></li>
+                <li><a href="../get-involved/chapter-handbook.html">Chapter Handbook</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="has-dropdown" data-open="false">
+          <a href="../philanthropy.html">Philanthropy</a>
+          <button type="button" class="dropdown-toggle" aria-expanded="false" aria-controls="submenu-philanthropy" aria-label="Toggle Philanthropy menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 10l5 5 5-5z"/></svg></button>
+          <div id="submenu-philanthropy" class="submenu submenu--mega">
+            <div class="submenu__group">
+              <span class="submenu__heading">Scholarships</span>
+              <ul>
+                <li><a href="../philanthropy/horowitz.html">Horowitz Scholarship</a></li>
+                <li><a href="../philanthropy/doherty.html">Doherty Student Chapter Fund</a></li>
+              </ul>
+            </div>
+            <div class="submenu__group">
+              <span class="submenu__heading">Memorial Funds</span>
+              <ul>
+                <li><a href="../philanthropy/burt.html">Burt Memorial Fund</a></li>
+                <li><a href="../philanthropy/lotzkar.html">Lotzkar Fund</a></li>
+                <li><a href="../philanthropy/rozier.html">Rozier Memorial Fund</a></li>
+              </ul>
+            </div>
+            <div class="submenu__group">
+              <span class="submenu__heading">Other Funds</span>
+              <ul>
+                <li><a href="../philanthropy/aaphd-general-fund.html">General Fund</a></li>
+                <li><a href="../philanthropy/small-grants.html">Small Grants Program</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li><a href="https://aaphd.memberclicks.net/" class="login-btn" target="_blank" rel="noopener">🔒 Member Login</a></li>
+        <li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-the-american-association-of-public-health-dentistry" class="cta cta--ghost" target="_blank" rel="noopener">Donate</a></li>
+        <li><a href="../membership/join-renew.html" class="cta">Become a Member</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="page-hero">
+  <div class="container">
+    <nav class="crumbs" aria-label="Breadcrumb"><a href="../dph-education.html">DPH Education</a><span>›</span><span>Residencies</span></nav>
+    <h1>Where to train</h1>
+    <p class="lead">Accredited Dental Public Health residency programs across the United States and Canada. Click any program name below to visit its website.</p>
+  </div>
+</section>
+
+<section id="compare" class="stripe">
+  <div class="container">
+    <span class="section-tag" style="color:#f0a988;">Compare programs</span>
+    <h2>Side-by-side details</h2>
+    <p class="section-lede">All accredited DPH residency programs, with deadlines, length, stipend, tuition, entrance exams, and more.</p>
+    <p class="last-updated">Last updated: October 2026</p>
+    <div class="table-scroll">
+      <table class="residency-table">
+        <thead>
+          <tr>
+            <th>Program</th>
+            <th>MPH required</th>
+            <th>Length</th>
+            <th>Part-time</th>
+            <th>Additional degrees</th>
+            <th>Remote/virtual</th>
+            <th>Application deadline</th>
+            <th>Start date</th>
+            <th>Stipend</th>
+            <th>Tuition charged</th>
+            <th>Required entrance exams</th>
+            <th>ADEA PASS</th>
+            <th>International eligible</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th><a href="https://www.atsu.edu/college-of-graduate-health-studies/academics/dental-emphasis-dental-public-health-residency" target="_blank" rel="noopener">A.T. Still University</a></th><td class="no">No</td><td>25 months</td><td class="yes">Yes</td><td>MPH and Certificate in DPH</td><td class="yes">Yes</td><td>Nov 1</td><td>June 15</td><td class="no">No</td><td class="yes">Yes</td><td>NB1 &amp; 2 or INBDE; TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://www.bu.edu/academics/sdm/programs/dental-public-health/" target="_blank" rel="noopener">Boston University Goldman School of Dental Medicine</a></th><td class="no">No</td><td>12–36 months</td><td class="yes">Yes</td><td>MSD, DScD (both with Certificate in DPH)</td><td class="no">No</td><td>Jan 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://dentistry.ucsf.edu/programs/post-grad/dental-public-health" target="_blank" rel="noopener">University of California, San Francisco</a></th><td class="yes">Yes</td><td>12 months</td><td class="no">No</td><td>DPH certificate</td><td class="no">No</td><td>Dec 1</td><td>July 1</td><td>Yes if eligible</td><td class="yes">Yes</td><td>None (GRE for Joint Programs); TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://case.edu/dental/departments-programs/community-dentistry/dental-public-health-residency-program/how-apply-dental-public-health-residency" target="_blank" rel="noopener">Case Western Reserve University</a></th><td class="yes">Yes</td><td>12–24 months</td><td class="yes">Yes</td><td>MPH and Certificate in DPH</td><td class="no">No</td><td>Oct 15</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>NBDE/INBDE or GRE; TOEFL or IELTS (international)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://www.dentistry.utoronto.ca/prospective-students/postgraduate/clinical-training/dental-public-health" target="_blank" rel="noopener">Faculty of Dentistry, University of Toronto</a></th><td class="yes">Yes</td><td>24–48 months</td><td class="yes">Yes</td><td>MSc DPH, PhD Dentistry, MSc DPH+PhD</td><td class="no">No</td><td>Jan 15</td><td>Sept 1</td><td>No (small grants in yr 2)</td><td class="yes">Yes</td><td>TOEFL or IELTS (international)</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="http://hsdm.harvard.edu/dental-public-health" target="_blank" rel="noopener">Harvard School of Dental Medicine</a></th><td class="yes">Yes</td><td>24–36 months</td><td class="yes">Yes</td><td>MMSc and DMSc (both with DPH certificate)</td><td class="no">No</td><td>Feb 1</td><td>July 1</td><td>Yes if eligible</td><td class="yes">Yes</td><td>TOEFL (international)</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://dentistry.uiowa.edu/pcd/dph-grad" target="_blank" rel="noopener">University of Iowa College of Dentistry</a></th><td class="no">No</td><td>24 months</td><td class="yes">Yes</td><td>MS, PhD</td><td class="no">No</td><td>Nov 1</td><td>July 1</td><td class="yes">Yes</td><td class="yes">Yes</td><td>TOEFL &amp; GRE</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://www.jacobidental.org/dental-public-health" target="_blank" rel="noopener">Jacobi Medical Center</a></th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>Jan 1</td><td>July 1</td><td class="yes">Yes</td><td class="no">No</td><td>None</td><td class="yes">Yes</td><td class="no">No</td></tr>
+          <tr><th><a href="https://www.nidcr.nih.gov/careers-training/interns-fellows/graduate-students/dental-public-health-research-fellowship" target="_blank" rel="noopener">National Institute of Dental and Craniofacial Research</a></th><td class="yes">Yes</td><td>36 months</td><td class="no">No</td><td>Certificate in DPH; Certificate in Oral Health Research</td><td class="no">No</td><td>Dec 31</td><td>July 1</td><td class="yes">Yes</td><td class="no">No</td><td>None</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://www.urmc.rochester.edu/dentistry/education/nys-dental-public-health-residency.aspx" target="_blank" rel="noopener">Eastman Institute for Oral Health</a></th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>Feb 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://publichealth.nc.gov/oralhealth/partners/Residency.htm" target="_blank" rel="noopener">North Carolina Division of Public Health</a></th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>Nov 1</td><td>July 1</td><td class="no">No</td><td class="no">No</td><td>TOEFL</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://www.temple.edu/academics/degree-programs/dental-public-health-certificate-graduate-dn-dph-dent" target="_blank" rel="noopener">Temple University Maurice H. Kornberg School of Dentistry</a></th><td class="yes">Yes</td><td>12 months</td><td class="yes">Yes</td><td>DPH/AEGD track</td><td class="no">No</td><td>Sept 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>None</td><td class="no">No</td><td class="yes">Yes</td></tr>
+          <tr><th><a href="https://www.unlv.edu/dental/academic-programs" target="_blank" rel="noopener">UNLV School of Dental Medicine</a></th><td class="yes">Yes</td><td>12 or 24 months</td><td class="yes">Yes</td><td>—</td><td class="no">No</td><td>May 1</td><td>August</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="no">No</td><td class="no">No</td></tr>
+          <tr><th><a href="https://www.uthscsa.edu/academics/dental/programs/dental-public-health-residency" target="_blank" rel="noopener">UT Health San Antonio</a></th><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td><td class="empty">—</td></tr>
+          <tr><th><a href="https://dental.tufts.edu/academics-admissions/postgraduate-programs/dental-public-health-residency-program" target="_blank" rel="noopener">Tufts School of Dental Medicine</a></th><td class="yes">Yes</td><td>24 months</td><td class="no">No</td><td>—</td><td class="no">No</td><td>Feb 1</td><td>July 1</td><td class="no">No</td><td class="yes">Yes</td><td>TOEFL</td><td class="yes">Yes</td><td class="yes">Yes</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="margin-top: 1rem; font-size: var(--fs-sm);">*MPH = Master of Public Health (or equivalent). ADEA PASS = Postdoctoral Application Support Service. Information self-reported by programs and may change — always verify with the program directly before applying.</p>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer"><div class="container">
+  <div class="footer-grid">
+    <div><p style="max-width: 36ch;">The professional home for dental public health since 1937.</p><p style="font-size: var(--fs-sm); margin-top: 1rem;">136 Everett Road<br>Albany, NY 12205<br><a href="#" class="email" data-name="info" data-domain="aaphd.org">info<span class="bot-trap" aria-hidden="true">.NO-SPAM</span>@aaphd<span class="bot-trap" aria-hidden="true">.removeme</span>.org</a></p></div>
+    <div><h4>Get Involved</h4><ul><li><a href="../membership/join-renew.html">Join / Renew</a></li><li><a href="../events/nohc.html">Attend NOHC</a></li><li><a href="../get-involved.html">Join a Council or Committee</a></li><li><a href="https://www.zeffy.com/en-US/donation-form/donate-to-the-american-association-of-public-health-dentistry" target="_blank" rel="noopener">Donate</a></li></ul></div>
+    
+    <div><h4>Connect</h4><ul><li><a href="../about.html">About</a></li><li><a href="../contact.html">Contact</a></li><li><a href="https://aaphd.memberclicks.net/" target="_blank" rel="noopener">Member Login</a></li><li><a href="https://www.facebook.com/AAPHDorg/" target="_blank" rel="noopener">Facebook</a> · <a href="https://www.linkedin.com/company/american-association-of-public-health-dentistry" target="_blank" rel="noopener">LinkedIn</a></li></ul></div>
+  </div>
+  <div class="colophon"><span>&copy; 1937–2026 American Association of Public Health Dentistry</span><span><a href="../privacy.html">Privacy</a> · <a href="../terms.html">Terms</a></span></div>
+</div></footer>
+
+<script src="../js/main.js?v=202610291138" defer></script>
+</body>
+</html>

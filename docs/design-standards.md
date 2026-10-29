@@ -149,3 +149,20 @@ Any change to `css/styles.css`, `js/main.js`, or `assets/logo.svg` requires
 bumping the `?v=YYYYMMDDHHMM` query string across all HTML pages in the same
 commit — see the README's bump script. This doc only covers visual/design
 conventions; see the README for that and other technical/deploy notes.
+
+## Page addresses
+
+Pages live in a folder named for their top menu section, so the address shows where the page sits in the menu:
+
+| Menu | Landing page | Pages inside |
+|---|---|---|
+| About | `/about` | `about/us`, `about/board`, `about/merit-awards`, ... |
+| DPH Education | `/dph-education` | `dph-education/curriculum`, ... |
+| Membership | `/membership` | `membership/join-renew`, ... |
+| Events | `/events` | `events/nohc`, `events/webinars`, ... |
+| Resources | `/resources` | `resources/jphd`, `resources/edi-corner`, ... |
+| Get Involved | `/get-involved` | `get-involved/councils`, ... |
+| Philanthropy | `/philanthropy` | `philanthropy/doherty`, ... |
+
+- Pages inside a folder link to each other and to `css/`, `js/` and `assets/` with relative paths (`../`), so the site still works from any base address.
+- When a page moves, add its old address to `_redirects` so saved links keep working.
