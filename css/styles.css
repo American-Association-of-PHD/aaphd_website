@@ -471,7 +471,7 @@ p { margin: 0 0 1em; }
   line-height: 1.4;
 }
 /* City and state sit on their own line under the workplace */
-.bio-card__loc { display: block; }
+.bio-card__loc { display: block; margin: 0; color: var(--slate); font-size: var(--fs-sm); line-height: 1.4; }
 /* Credentials sit on their own lighter line under the name so long strings don't crowd it */
 .bio-card__creds {
   display: block;
@@ -497,6 +497,17 @@ p { margin: 0 0 1em; }
 .cards--bio-compact .card { display: grid; grid-template-columns: minmax(112px, 40%) 1fr; }
 .cards--bio-compact .bio-card__photo { aspect-ratio: auto; height: 100%; min-height: 150px; }
 .cards--bio-compact .bio-card__body { padding: 1rem 1.1rem; align-self: center; }
+/* Every part of a card (name, title, note, workplace, city) shares row tracks with the cards beside it,
+   so each line starts at the same height in every box of a row. */
+.cards.cards--bio-compact { row-gap: 0; margin-bottom: -1.5rem; }
+.cards--bio-compact .card { grid-row: span 5; grid-template-rows: subgrid; row-gap: 0; margin-bottom: 1.5rem; }
+.cards--bio-compact .bio-card__photo { grid-column: 1; grid-row: 1 / span 5; }
+.cards--bio-compact .bio-card__body { grid-column: 2; grid-row: 1 / span 5; display: grid; grid-template-rows: subgrid; align-self: stretch; }
+.cards--bio-compact .bio-card__body h3 { grid-row: 1; }
+.cards--bio-compact .bio-card__role { grid-row: 2; }
+.cards--bio-compact .bio-card__note { grid-row: 3; }
+.cards--bio-compact .bio-card__org { grid-row: 4; }
+.cards--bio-compact .bio-card__loc { grid-row: 5; }
 
 .bio-section { margin-block-end: 3rem; }
 .bio-section:last-child { margin-block-end: 0; }
