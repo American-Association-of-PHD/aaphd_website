@@ -590,6 +590,9 @@ a.card[target="_blank"] h3 { padding-right: 1.5rem; }
   text-transform: uppercase; color: var(--coral-700); background: rgba(232, 93, 58, .1);
   padding: .35rem .75rem; border-radius: 999px; margin-bottom: 1rem; }
 .hero h1 { font-size: var(--fs-hero); margin-bottom: .35em; letter-spacing: -.02em; }
+/* From tablet width up, the home headline is sized to fit on one line (the text is about 20em wide);
+   on phones it keeps the larger size and wraps. */
+@media (min-width: 760px) { .hero h1 { font-size: min(var(--fs-hero), calc((min(var(--max-w), 100vw) - 2 * var(--gutter)) / 21)); } }
 .hero h1 em { font-style: italic; color: var(--coral-700); font-weight: 500; }
 .hero__lede { font-size: var(--fs-lg); color: var(--slate); max-width: 56ch; margin-bottom: 1.5rem; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; }
