@@ -7,7 +7,7 @@
 :root {
   --navy-900: #0a1d3a; --navy-700: #0f2a4e; --navy-500: #1d3d6b;
   --ink: #1a1f2e; --slate: #5a6b82; --mist: #e9ecf2;
-  --paper: #faf7f2; --cream: #f1ece3; --white: #ffffff;
+  --paper: #faf7f2; --cream: #f1ece3; --tan: #e8dfcd; --white: #ffffff;
   --coral: #e85d3a; --coral-700: #c44a2c; --gold: #d4a437;
 
   --font-sans: 'Inter', 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif;
@@ -652,6 +652,9 @@ section h2 { margin-bottom: 1rem; }
    two .section--tint sections back to back, or place one directly
    against .stripe (dark) — both already read as distinct from paper. */
 .section--tint { background: var(--cream); }
+/* Darker tan band: used where a section sits directly under a page hero (whose gradient ends in nearly the same cream). */
+.section--tan { background: var(--tan); }
+.section--tan .section-tag { color: #a93d22; }
 .section-lede { color: var(--slate); font-size: var(--fs-lg); max-width: 60ch; margin-bottom: 2.5rem; }
 .section-tag { display: inline-flex; align-items: center; gap: .65rem; font-size: var(--fs-xs); font-weight: 700;
   letter-spacing: .18em; text-transform: uppercase; color: var(--coral-700); margin-bottom: .85rem; }

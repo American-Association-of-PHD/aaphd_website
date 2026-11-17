@@ -17,6 +17,7 @@ defined once as CSS custom properties at the top of `css/styles.css` (the
 | `--mist` | `#e9ecf2` | Light neutral backgrounds (hover states, chips) |
 | `--paper` | `#faf7f2` | Page background |
 | `--cream` | `#f1ece3` | Alternate section background (`.section--tint`) — pulled from the hero gradient's end stop |
+| `--tan` | `#e8dfcd` | Darker tan band (`.section--tan`) — for a section placed directly under a page hero, whose gradient ends in nearly the same cream (e.g. the "How to give" band on Small Grants and Horowitz). Its eyebrow tag uses a deeper coral for contrast. |
 | `--white` | `#ffffff` | Card backgrounds |
 | `--coral` | `#e85d3a` | Primary accent — solid buttons, tags |
 | `--coral-700` | `#c44a2c` | Coral hover/darker state, links |
